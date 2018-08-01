@@ -1,4 +1,11 @@
 <?php
+declare(strict_types=1);
+
+/*
+ * Created by solutionDrive GmbH
+ *
+ * @copyright 2018 solutionDrive GmbH
+ */
 
 namespace sdGoogleTagManager\Subscriber;
 
@@ -7,7 +14,6 @@ use Enlight_Event_EventArgs as EventArgs;
 
 class Template implements SubscriberInterface
 {
-
     private $viewDir;
 
     public function __construct($viewDir)

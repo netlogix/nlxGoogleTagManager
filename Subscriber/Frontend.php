@@ -1,4 +1,11 @@
 <?php
+declare(strict_types=1);
+
+/*
+ * Created by solutionDrive GmbH
+ *
+ * @copyright 2018 solutionDrive GmbH
+ */
 
 namespace sdGoogleTagManager\Subscriber;
 
@@ -7,10 +14,7 @@ use sdGoogleTagManager\Services\Config;
 
 class Frontend implements SubscriberInterface
 {
-
-    /**
-     * @var Config
-     */
+    /** @var Config */
     private $config;
 
     public function __construct(Config $config)
@@ -21,7 +25,7 @@ class Frontend implements SubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onFrontendPostDispatch'
+            'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onFrontendPostDispatch',
         ];
     }
 

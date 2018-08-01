@@ -1,4 +1,11 @@
 <?php
+declare(strict_types=1);
+
+/*
+ * Created by solutionDrive GmbH
+ *
+ * @copyright 2018 solutionDrive GmbH
+ */
 
 namespace sdGoogleTagManager\Subscriber;
 
@@ -6,12 +13,11 @@ use Enlight\Event\SubscriberInterface;
 
 class Checkout implements SubscriberInterface
 {
-
     public static function getSubscribedEvents()
     {
         return [
             'Enlight_Controller_Action_PostDispatchSecure_Frontend_Checkout' => 'onFrontendPostDispatchSecure',
-            'Shopware_Controllers_Frontend_Checkout::addArticleAction::after' => 'onAddArticleAfter'
+            'Shopware_Controllers_Frontend_Checkout::addArticleAction::after' => 'onAddArticleAfter',
         ];
     }
 
@@ -54,18 +60,19 @@ class Checkout implements SubscriberInterface
 
             foreach ($content['custom_product_adds'] as $option) {
                 // Assign 1 if something activated
-                if ($personalizationCake == 0) {
-                    $personalizationCake = (int)(
-                        $option['ordernumber'] == "HAND_WRITTEN_TEXT" ||
-                        $option['ordernumber'] == "HAND_WRITTEN_TEXT_1"
+                if (0 == $personalizationCake) {
+                    $personalizationCake = (int) (
+                        'HAND_WRITTEN_TEXT' == $option['ordernumber']  ||
+                        'HAND_WRITTEN_TEXT_1' == $option['ordernumber']
                     );
                 }
-                if ($personalizationCard == 0) {
-                    $personalizationCard = (int)($option['ordernumber'] == "GREETING_CARD");
+
+                if (0 == $personalizationCard) {
+                    $personalizationCard = (int) ('GREETING_CARD' == $option['ordernumber']);
                 }
             }
 
-            $personalization = (int)($personalizationCake || $personalizationCard);
+            $personalization = (int) ($personalizationCake || $personalizationCard);
         }
 
         return [

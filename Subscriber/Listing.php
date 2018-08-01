@@ -1,4 +1,11 @@
 <?php
+declare(strict_types=1);
+
+/*
+ * Created by solutionDrive GmbH
+ *
+ * @copyright 2018 solutionDrive GmbH
+ */
 
 namespace sdGoogleTagManager\Subscriber;
 
@@ -10,7 +17,7 @@ class Listing implements SubscriberInterface
     {
         return [
             'Enlight_Controller_Action_PostDispatch_Frontend_Listing' => 'onPostDispatchFrontendListing',
-            'Enlight_Controller_Action_PostDispatch_Widgets_Listing' => 'onPostDispatchWidgetListing'
+            'Enlight_Controller_Action_PostDispatch_Widgets_Listing' => 'onPostDispatchWidgetListing',
         ];
     }
 
@@ -27,7 +34,7 @@ class Listing implements SubscriberInterface
         $articlesCount = $view->getAssign('sPerPage');
 
         $view->assign([
-            'pageArticleCounterStart' => $this->getArticleCounterStart($pageIndex, $articlesCount)
+            'pageArticleCounterStart' => $this->getArticleCounterStart($pageIndex, $articlesCount),
         ]);
     }
 
@@ -39,7 +46,7 @@ class Listing implements SubscriberInterface
         $controller = $args->getSubject();
         $request = $controller->Request();
 
-        if ($request->getActionName() !== 'ajaxListing') {
+        if ('ajaxListing' !== $request->getActionName()) {
             return;
         }
 
@@ -51,13 +58,14 @@ class Listing implements SubscriberInterface
         $articlesCount = count($articles);
 
         $view->assign([
-            'pageArticleCounterStart' => $this->getArticleCounterStart($pageIndex, $articlesCount)
+            'pageArticleCounterStart' => $this->getArticleCounterStart($pageIndex, $articlesCount),
         ]);
     }
 
     /**
      * @param $index
      * @param $count
+     *
      * @return int
      */
     public function getArticleCounterStart($index, $count)

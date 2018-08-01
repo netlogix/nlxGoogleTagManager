@@ -1,11 +1,14 @@
 <?php
+declare(strict_types=1);
+
+/*
+ * Created by solutionDrive GmbH
+ *
+ * @copyright 2018 solutionDrive GmbH
+ */
 
 namespace sdGoogleTagManager\Services;
 
-/**
- * Interface ConfigInterface
- * @package sdGoogleTagManager\Services
- */
 interface ConfigInterface
 {
     /**
@@ -15,15 +18,18 @@ interface ConfigInterface
 
     /**
      * Gets a specific config value by key
-     * @param $key
+     *
+     * @param string $key
+     *
      * @return mixed
      */
-    public function get($key);
+    public function get(string $key);
 
     /**
      * Sets a specific config value
-     * @param $key
-     * @param $value
+     *
+     * @param string $key
+     * @param string $value
      */
-    public function set($key, $value);
+    public function set(string $key, string $value);
 }
