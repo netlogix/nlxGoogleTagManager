@@ -3,6 +3,13 @@ sdGoogleTagManager
 
 This plugin implements GoogleTagManager functionality to a shopware shop
 
+TODOs
+-----
+
+- Check functionality of plugin
+- Check design of plugin
+- Add tests
+
 Running Tests
 -------------
 
