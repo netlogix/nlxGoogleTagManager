@@ -1,10 +1,10 @@
-# sdGoogleTagManager
+sdGoogleTagManager
+==================
 
-## About sdGoogleTagManager
+This plugin implements GoogleTagManager functionality to a shopware shop
 
-TODO Change this default description
-
-## Running Tests
+Running Tests
+-------------
 
 ### phpunit - functional
 
@@ -20,6 +20,13 @@ TODO Change this default description
 
     $ vendor/bin/phpspec-standalone.phar
 
-## License
+Tracking Cookie
+---------------
+
+This Plugin will not tracking anything without a Cookie named 'cookieStrategy'.
+The Cookie 'cookieStrategy' needs a value greater equqals 1 to enable tracking.
+
+License
+-------
 
 Please see [License File](LICENSE) for more information.
