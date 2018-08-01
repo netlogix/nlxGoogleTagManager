@@ -1,0 +1,6 @@
+suites:
+  default:
+    namespace: sdGoogleTagManager
+    psr4_prefix: sdGoogleTagManager
+    spec_path: ./
+    src_path: ./

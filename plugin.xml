@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
+    <label lang="de">sdGoogleTagManager</label>
+    <label lang="en">sdGoogleTagManager</label>
+    <version>1.0.0</version>
+    <copyright>(c) by solutionDrive GmbH</copyright>
+    <license>Proprietary</license>
+    <link>https://solutiondrive.de</link>
+    <author>solutionDrive GmbH</author>
+
+    <compatibility minVersion="5.2.0" />
+
+    <changelog version="1.0.0">
+        <changes lang="de">Erste Veröffentlichung</changes>
+        <changes lang="en">Initial Release</changes>
+    </changelog>
+</plugin>
