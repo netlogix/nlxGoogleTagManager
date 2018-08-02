@@ -25,7 +25,7 @@ Running Tests
     
 ### phpspec
 
-    $ vendor/bin/phpspec-standalone.phar
+    $ vendor/bin/phpspec-standalone.php7.2.phar
 
 Tracking Cookie
 ---------------
