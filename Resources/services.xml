@@ -9,8 +9,9 @@
 
     <services>
         <!-- Subscriber -->
-        <service id="sd_google_tag_manager.subscriber.template" class="sdGoogleTagManager\Subscriber\Template">
-            <argument type="string">%sd_google_tag_manager.view_dir%</argument>
+        <service id="sd_google_tag_manager.subscriber.template" class="sdGoogleTagManager\Subscriber\TemplateRegistration">
+            <argument type="string">%sdgoogletagmanager.plugin_dir%</argument>
+            <argument type="service" id="template"/>
             <tag name="shopware.event_subscriber" />
         </service>
 
