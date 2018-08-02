@@ -2,7 +2,35 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <services>
 
+    <parameters>
+        <parameter key="sd_google_tag_manager.view_dir">%sdgoogletagmanager.plugin_dir%/Resources/views</parameter>
+    </parameters>
+
+    <services>
+        <!-- Subscriber -->
+        <service id="sd_google_tag_manager.subscriber.template" class="sdGoogleTagManager\Subscriber\Template">
+            <argument type="string">%sd_google_tag_manager.view_dir%</argument>
+            <tag name="shopware.event_subscriber" />
+        </service>
+
+        <service id="sd_google_tag_manager.subscriber.frontend" class="sdGoogleTagManager\Subscriber\Frontend">
+            <argument type="service" id="sd_google_tag_manager.service.config" />
+            <tag name="shopware.event_subscriber" />
+        </service>
+
+        <service id="sd_google_tag_manager.subscriber.listing" class="sdGoogleTagManager\Subscriber\Listing">
+            <tag name="shopware.event_subscriber" />
+        </service>
+
+        <service id="sd_google_tag_manager.subscriber.checkout" class="sdGoogleTagManager\Subscriber\Checkout">
+            <tag name="shopware.event_subscriber" />
+        </service>
+
+        <!-- Services -->
+        <service id="sd_google_tag_manager.service.config" class="sdGoogleTagManager\Services\Config">
+            <argument type="service" id="shopware.plugin.cached_config_reader" />
+            <tag name="shopware.service_subscriber" />
+        </service>
     </services>
 </container>

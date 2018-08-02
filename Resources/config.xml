@@ -2,13 +2,17 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
     <elements>
-        <element type="text">
-            <name>demoConfig</name>
-            <label lang="de">Demo Konfiguration</label>
-            <label lang="en">Demo configuration</label>
-            <value>Just a demo configuration, without any effects.</value>
-            <description lang="de">Nur ein hoffentlich hilfreicher Text.</description>
-            <description lang="en">Hopefully this text will help you.</description>
+        <element type="text" scope="shop">
+            <name>sdGoogleTagManagerTrackingId</name>
+            <label lang="de">Google Tag Manager tracking id</label>
+            <label lang="en">Google tag manager tracking id</label>
+            <value>GTM-XXXX</value>
+        </element>
+        <element type="boolean" scope="shop">
+            <name>sdGoogleTagManagerRemarketingEnabled</name>
+            <label lang="de">Remarketing Parameter einbinden?</label>
+            <label lang="en">Remarketing parameters included?</label>
+            <value>false</value>
         </element>
     </elements>
 </config>
