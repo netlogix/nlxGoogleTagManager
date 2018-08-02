@@ -33,12 +33,6 @@
                 {literal}
             ],
             'transactionPaymentOption': '{/literal}{$sPayment.description}{literal}',
-            'transactionDeliveryDate': '{/literal}{$sdSelectedDeliveryDate|date_format:"%Y%m%d"}{literal}',
-            {/literal}{if $sdGoogleTagManagerCustomProductValues}{literal}
-            'transactionPersonalization': {/literal}{$sdGoogleTagManagerCustomProductValues.transactionPersonalization}{literal},
-            'transactionPersonalizationCake': {/literal}{$sdGoogleTagManagerCustomProductValues.transactionPersonalizationCake}{literal},
-            'transactionPersonalizationCard': {/literal}{$sdGoogleTagManagerCustomProductValues.transactionPersonalizationCard}{literal},
-            {/literal}{/if}{literal}
         {/literal}
     {/block}
 {/if}
