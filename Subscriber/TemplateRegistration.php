@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace sdGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
-use Enlight_Event_EventArgs as EventArgs;
 
 class TemplateRegistration implements SubscriberInterface
 {
