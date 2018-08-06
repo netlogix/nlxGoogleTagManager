@@ -18,7 +18,7 @@
         }
     },
     "require": {
-        "php": "^7.1"
+        "php": "^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
@@ -31,8 +31,9 @@
             "behat-standalone.phar": "http://build-tools.cloud.solutiondrive.de/phar/behat-standalone.php7.2.phar",
             "phpspec-standalone.php7.2.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.2.phar",
             "phpspec-standalone.php7.1.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.1.phar",
+            "phpspec-standalone.php7.0.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.0.phar",
             "ecs-standalone.phar": "http://build-tools.cloud.solutiondrive.de/phar/coding-standard-standalone.ecs.php7.2.phar",
-            "easy-coding-standard-php7.1.yml": "http://build-tools.cloud.solutiondrive.de/phar/easy-coding-standard-php7.1.yml"
+            "easy-coding-standard-php7.0.yml": "http://build-tools.cloud.solutiondrive.de/phar/easy-coding-standard-php7.0.yml"
         }
     }
 }

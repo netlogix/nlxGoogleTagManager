@@ -4,4 +4,4 @@ FILTERED_FOLDERS=`find ./ -mindepth 1 -maxdepth 1 -type d | grep -Ev 'Resources|
 SEPERATOR=" "
 FOLDERS=$(printf "${SEPERATOR}%s" "${FILTERED_FOLDERS[@]}")
 
-vendor/bin/ecs-standalone.phar check --no-progress-bar -n -c vendor/bin/easy-coding-standard-php7.1.yml $FOLDERS $@
+vendor/bin/ecs-standalone.phar check --no-progress-bar -n -c vendor/bin/easy-coding-standard-php7.0.yml $FOLDERS $@
