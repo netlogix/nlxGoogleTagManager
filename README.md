@@ -25,6 +25,8 @@ Running Tests
     
 ### phpspec
 
+phpspec should be run with the minimum supported version of PHP7.1
+
     $ vendor/bin/phpspec-standalone.php7.1.phar
 
 Tracking Cookie
