@@ -23,7 +23,7 @@
     "require-dev": {
         "phpunit/phpunit": "^5.7",
         "shopware/shopware": "^5.2",
-        "solutiondrive/standalone-build-tools": "^1.0.0"
+        "solutiondrive/standalone-build-tools": "^1.0"
     },
     "config": {
         "sort-packages": true,

@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<phpunit bootstrap="../../../tests/Functional/bootstrap.php">
-<testsuite name="sdGoogleTagManager Test Suite">
-    <directory>tests</directory>
-</testsuite>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.5/phpunit.xsd"
+         bootstrap="./tests/Functional/bootstrap.php"
+         colors="true"
+         backupGlobals="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutResourceUsageDuringSmallTests="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         verbose="true">
+
+    <testsuites>
+        <testsuite name="sdGoogleTagManager_AllTests">
+            <directory>./tests/Unit</directory>
+            <directory>./tests/Functional</directory>
+        </testsuite>
+    </testsuites>
+
+    <groups>
+        <exclude>
+            <group>disable</group>
+        </exclude>
+    </groups>
 </phpunit>
