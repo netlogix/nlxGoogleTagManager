@@ -18,7 +18,8 @@
         }
     },
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "solutiondrive/sd-test-environment-shopware": "^0.3.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
