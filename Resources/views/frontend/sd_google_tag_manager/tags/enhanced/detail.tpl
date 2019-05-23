@@ -1,4 +1,4 @@
-{if $sdCookieStrategy >= 1}
+{if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
     {include file="frontend/sd_google_tag_manager/tags/enhanced/default.tpl"}
     {literal}
         'productID': '{/literal}{$sArticle.articleID}{literal}',

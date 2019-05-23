@@ -3,7 +3,7 @@
 {block name="frontend_index_header_javascript_tracking"}
     {$smarty.block.parent}
 
-    {if $sdCookieStrategy >= 1}
+    {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
         <!-- Google Tag Manager -->
         <script>
             window.isGTMLoaded = false;

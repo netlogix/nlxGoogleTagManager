@@ -1,4 +1,4 @@
-{if $sdGoogleTagManagerRemarketingEnabled and $sdCookieStrategy >= 1}
+{if $sdGoogleTagManagerRemarketingEnabled and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
     <script>
         dataLayer.push({literal}{
             'event': 'remarketingTriggered',

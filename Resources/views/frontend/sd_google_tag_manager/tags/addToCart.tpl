@@ -1,4 +1,4 @@
-{if $sArticle and $sdCookieStrategy >= 1}
+{if $sArticle and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie) }
     <script>
         dataLayer.push({literal}{
             'event': 'addToCart',

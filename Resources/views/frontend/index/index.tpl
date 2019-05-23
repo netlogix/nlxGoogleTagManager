@@ -1,7 +1,7 @@
 {extends file="parent:frontend/index/index.tpl"}
 
 {block name="frontend_index_header"}
-    {if $sBasket.content and $sdCookieStrategy >= 1}
+    {if $sBasket.content and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
         {strip}
             <script>
                 if (typeof globalBasketProducts == 'undefined') {
