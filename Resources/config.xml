@@ -14,5 +14,11 @@
             <label lang="en">Remarketing parameters included?</label>
             <value>false</value>
         </element>
+        <element type="boolean" scope="shop">
+            <name>sdGoogleTagManagerIgnoreTrackingCookie</name>
+            <label lang="de">Tracking-Cookie ignorieren?</label>
+            <label lang="en">Ignore tracking cookie?</label>
+            <value>false</value>
+        </element>
     </elements>
 </config>
