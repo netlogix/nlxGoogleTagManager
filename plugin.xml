@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <copyright>(c) by solutionDrive GmbH</copyright>
     <license>proprietary</license>
     <link>http://www.solutionDrive.de</link>
@@ -15,5 +15,8 @@
         <changes lang="de">Erste Veröffentlichung</changes>
         <changes lang="en">Initial Release</changes>
     </changelog>
-
+    <changelog version="1.1.0">
+        <changes lang="de">Option hinzugefügt, welche erlaubt, auch ohne "cookieStrategy"-Cookie zu tracken</changes>
+        <changes lang="en">Added option to allow tracking without the "cookieStrategy"-cookie</changes>
+    </changelog>
 </plugin>
