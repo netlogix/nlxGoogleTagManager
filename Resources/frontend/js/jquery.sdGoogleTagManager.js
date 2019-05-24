@@ -19,7 +19,7 @@
 
             var cookieStrategy = Cookies.get('cookieStrategy');
 
-            if (cookieStrategy >= 1 && window.isGTMLoaded === true) {
+            if ((cookieStrategy >= 1 || window.ignoreTrackingCookie) && window.isGTMLoaded === true) {
                 me.applyDataAttributes();
 
                 me.$productClick = $(me.opts.productClickSelector);

@@ -1,4 +1,4 @@
-{if $sArticles and $sdCookieStrategy >= 1}
+{if $sArticles and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
     {literal}
         {
             'ecomm_pagetype': 'category',

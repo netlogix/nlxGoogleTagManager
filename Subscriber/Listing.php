@@ -55,7 +55,7 @@ class Listing implements SubscriberInterface
         $articles = $view->getAssign('sArticles');
 
         $pageIndex = (int) $view->getAssign('pageIndex');
-        $articlesCount = count($articles);
+        $articlesCount = \count($articles);
 
         $view->assign([
             'pageArticleCounterStart' => $this->getArticleCounterStart($pageIndex, $articlesCount),
