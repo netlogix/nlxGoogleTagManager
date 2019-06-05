@@ -35,11 +35,12 @@ class Frontend implements SubscriberInterface
         $view = $controller->View();
 
         $cookieStrategy = (int) Shopware()->Front()->Request()->getCookie('cookieStrategy', 0);
+        $ignoreCookieStrategy = $this->config->ignoreTrackingCookie();
 
         $viewParameters = [];
         $viewParameters['sdCookieStrategy'] = $cookieStrategy;
-        $viewParameters['sdGoogleTagManagerIgnoreTrackingCookie'] = $this->config->ignoreTrackingCookie();
-        if ($cookieStrategy >= 1) {
+        $viewParameters['sdGoogleTagManagerIgnoreTrackingCookie'] = $ignoreCookieStrategy;
+        if (true === $ignoreCookieStrategy || $cookieStrategy >= 1) {
             $viewParameters['sdGoogleTagManagerTrackingId'] = $this->config->getGoogleTagManagerTrackingId();
             $viewParameters['sdGoogleTagManagerRemarketingEnabled'] = $this->config->isRemarketingEnabled();
         }
