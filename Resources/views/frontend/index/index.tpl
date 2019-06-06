@@ -28,7 +28,7 @@
 {/block}
 
 {block name='frontend_index_after_body'}
-    {if $sdCookieStrategy >= 1}
+    {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
         <!-- Google Tag Manager (noscript) -->
         <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id={$sdGoogleTagManagerTrackingId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
