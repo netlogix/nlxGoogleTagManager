@@ -1,0 +1,276 @@
+stages:
+  - build
+  - test
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+    - bin/.phpunit
+    - vendor/
+    - vendor-bin/
+    - .env
+
+.composer:
+  stage: build
+  image: solutiondrive/php-composer:${PHP_VERSION}
+  script:
+    - ./etc/scripts/prepareComposerJson.sh
+    - composer install -n --no-progress
+
+.phpspec:
+  stage: test
+  image: solutiondrive/php-xdebug:${PHP_VERSION}
+  script:
+    - vendor/bin/phpspec-standalone.${PHP_VERSION}.phar run --no-code-generation --format=dot
+
+.phpunit:
+  stage: test
+  image: solutiondrive/php-xdebug:${PHP_VERSION}
+  script:
+    - vendor/bin/phpunit -c phpunit_unit.xml.dist
+
+# START ONLY ON LATEST PHP VERSION
+.codingstandards:
+  stage: test
+  image: solutiondrive/php-composer:${PHP_VERSION}
+  script:
+    - ./etc/scripts/checkCodingStandards.sh
+
+.check_structure:
+  stage: test
+  image: alpine:latest
+  script:
+    - ./etc/scripts/checkForCorrectPluginStructure.sh
+# END ONLY ON LATEST PHP VERSION
+
+# TODO: Add publish pipeline
+
+# START MATRIX DEFINITION
+composer:php70_shopware55:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .composer
+
+phpspec:php70_shopware55:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .phpspec
+
+phpunit:php70_shopware55:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .phpunit
+
+composer:php71_shopware55:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .composer
+
+phpspec:php71_shopware55:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .phpspec
+
+phpunit:php71_shopware55:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .phpunit
+
+composer:php72_shopware55:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .composer
+
+phpspec:php72_shopware55:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .phpspec
+
+phpunit:php72_shopware55:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .phpunit
+
+codingstandards:php72_shopware55:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .codingstandards
+
+check_structure:php72_shopware55:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.5.10
+  extends: .check_structure
+
+composer:php70_shopware54:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .composer
+
+phpspec:php70_shopware54:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .phpspec
+
+phpunit:php70_shopware54:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .phpunit
+
+composer:php71_shopware54:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .composer
+
+phpspec:php71_shopware54:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .phpspec
+
+phpunit:php71_shopware54:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .phpunit
+
+composer:php72_shopware54:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .composer
+
+phpspec:php72_shopware54:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .phpspec
+
+phpunit:php72_shopware54:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.4.6
+  extends: .phpunit
+
+composer:php70_shopware53:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .composer
+
+phpspec:php70_shopware53:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .phpspec
+
+phpunit:php70_shopware53:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .phpunit
+
+composer:php71_shopware53:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .composer
+
+phpspec:php71_shopware53:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .phpspec
+
+phpunit:php71_shopware53:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .phpunit
+
+composer:php72_shopware53:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .composer
+
+phpspec:php72_shopware53:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .phpspec
+
+phpunit:php72_shopware53:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.3.7
+  extends: .phpunit
+
+composer:php70_shopware52:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .composer
+
+phpspec:php70_shopware52:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .phpspec
+
+phpunit:php70_shopware52:
+  variables:
+    PHP_VERSION: php7.0
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .phpunit
+
+composer:php71_shopware52:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .composer
+
+phpspec:php71_shopware52:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .phpspec
+
+phpunit:php71_shopware52:
+  variables:
+    PHP_VERSION: php7.1
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .phpunit
+
+composer:php72_shopware52:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .composer
+
+phpspec:php72_shopware52:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .phpspec
+
+phpunit:php72_shopware52:
+  variables:
+    PHP_VERSION: php7.2
+    SHOPWARE_VERSION: \~5.2.27
+  extends: .phpunit
+# END MATRIX DEFINITION
