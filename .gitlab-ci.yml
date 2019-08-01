@@ -16,6 +16,8 @@ cache:
   script:
     - ./etc/scripts/prepareComposerJson.sh
     - composer install -n --no-progress
+  tags:
+    - memory_hungry
 
 .phpspec:
   stage: test
