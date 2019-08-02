@@ -4,14 +4,14 @@
             'ecommerce': {
                 'detail': {
                     'actionField': {
-                        'list': '{/literal}{$sCategoryInfo.name}{literal}'
+                        'list': "{/literal}{$sCategoryInfo.name}{literal}"
                     },
                     'products': [{
-                        'id': '{/literal}{$sArticle.ordernumber}{literal}',
-                        'name': '{/literal}{$sArticle.articleName}{literal}',
-                        'price': '{/literal}{$sArticle.price}{literal}',
-                        'brand': '{/literal}{$sArticle.supplierName}{literal}',
-                        'category': '{/literal}{$sCategoryInfo.name}{literal}'
+                        'id': "{/literal}{$sArticle.ordernumber}{literal}",
+                        'name': "{/literal}{$sArticle.articleName}{literal}",
+                        'price': "{/literal}{$sArticle.price}{literal}",
+                        'brand': "{/literal}{$sArticle.supplierName}{literal}",
+                        'category': "{/literal}{$sCategoryInfo.name}{literal}"
                     }]
                 }
             },

@@ -5,7 +5,7 @@
             'ecommerce': {
                 'checkout': {
                     'actionField': {
-                        'step': '{/literal}{$step}{literal}'
+                        'step': "{/literal}{$step}{literal}"
                     },
                     'currencyCode': 'EUR',
                     'products': window.globalBasketProducts
