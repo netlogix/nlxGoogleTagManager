@@ -6,7 +6,7 @@
                 {/literal}
                     {foreach $sBasket.content as $basketItem}
                 {literal}
-                    '{/literal}{$basketItem.ordernumber}{literal}',
+                    "{/literal}{$basketItem.ordernumber}{literal}",
                 {/literal}
                     {/foreach}
                 {literal}
@@ -15,7 +15,7 @@
                 {/literal}
                     {foreach $sBasket.content as $basketItem}
                 {literal}
-                    '{/literal}{$basketItem.articlename}{literal}',
+                    "{/literal}{$basketItem.articlename}{literal}",
                 {/literal}
                     {/foreach}
                 {literal}
@@ -24,12 +24,12 @@
                 {/literal}
                     {foreach $sBasket.content as $basketItem}
                 {literal}
-                    '{/literal}{$basketItem.price}{literal}',
+                    "{/literal}{$basketItem.price}{literal}",
                 {/literal}
                     {/foreach}
                 {literal}
             ],
-            'ecomm_totalvalue': '{/literal}{$sBasket.AmountNumeric}{literal}'
+            'ecomm_totalvalue': "{/literal}{$sBasket.AmountNumeric}{literal}"
         }
     {/literal}
 {/if}

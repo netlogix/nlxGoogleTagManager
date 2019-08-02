@@ -9,12 +9,12 @@
                     {foreach $sArticles as $sArticle}
                     {literal}
                     {
-                        'name': '{/literal}{$sArticle.articleName}{literal}',
-                        'id': '{/literal}{$sArticle.ordernumber}{literal}',
-                        'price': '{/literal}{$sArticle.price}{literal}',
-                        'brand': '{/literal}{$sArticle.supplierName}{literal}',
+                        'name': "{/literal}{$sArticle.articleName}{literal}",
+                        'id': "{/literal}{$sArticle.ordernumber}{literal}",
+                        'price': "{/literal}{$sArticle.price}{literal}",
+                        'brand': "{/literal}{$sArticle.supplierName}{literal}",
                         'list': 'Category',
-                        'category': '{/literal}{$sCategoryContent.name}{literal}',
+                        'category': "{/literal}{$sCategoryContent.name}{literal}",
                         'position': {/literal}{$articlePosition}{literal}
                     },
                     {/literal}

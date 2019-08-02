@@ -3,13 +3,13 @@
         {
             'ecomm_pagetype': 'category',
             'ecomm_pcat': [
-                '{/literal}{$sCategoryInfo.name}{literal}'
+                "{/literal}{$sCategoryInfo.name}{literal}"
             ],
             'ecomm_prodid': [
                 {/literal}
                     {foreach $sArticles as $sArticle}
                 {literal}
-                    '{/literal}{$sArticle.ordernumber}{literal}',
+                    "{/literal}{$sArticle.ordernumber}{literal}",
                 {/literal}
                     {/foreach}
                 {literal}
