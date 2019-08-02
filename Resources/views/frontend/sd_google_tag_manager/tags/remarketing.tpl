@@ -11,6 +11,8 @@
                     {include file="frontend/sd_google_tag_manager/tags/remarketing/checkout.tpl"}
                 {elseif {controllerName|lower} == 'checkout' && {controllerAction|lower} == 'finish'}
                     {include file="frontend/sd_google_tag_manager/tags/remarketing/finish.tpl"}
+                {else}
+                    []
                 {/if}
             {literal}
         }{/literal});
