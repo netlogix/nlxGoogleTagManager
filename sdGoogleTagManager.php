@@ -14,13 +14,4 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
  */
 class sdGoogleTagManager extends Plugin
 {
-
-    /**
-    * @param ContainerBuilder $container
-    */
-    public function build(ContainerBuilder $container)
-    {
-        $container->setParameter('sdgoogletagmanager.plugin_dir', $this->getPath());
-        parent::build($container);
-    }
 }
