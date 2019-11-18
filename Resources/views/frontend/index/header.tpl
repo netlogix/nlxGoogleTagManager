@@ -6,12 +6,7 @@
     {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
         <!-- Google Tag Manager -->
         <script>
-            window.isGTMLoaded = false;
             window.ignoreTrackingCookie = {$sdGoogleTagManagerIgnoreTrackingCookie};
-
-            if (typeof dataLayer !== "undefined") {
-                window.isGTMLoaded = true;
-            }
             var dataLayer = dataLayer || [];
         </script>
 
