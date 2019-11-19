@@ -6,13 +6,12 @@
     {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
         <!-- Google Tag Manager -->
         <script>
-            window.isGTMLoaded = false;
             window.ignoreTrackingCookie = {$sdGoogleTagManagerIgnoreTrackingCookie};
-
-            if (typeof dataLayer !== "undefined") {
-                window.isGTMLoaded = true;
-            }
             var dataLayer = dataLayer || [];
+
+            window.sdGTMSnippets = {
+                'googleAnalyticsOptoutSuccess': '{s namespace="frontend/plugins/sdGoogleTagManager" name="GoogleAnalyticsOptoutSuccess"}{/s}'
+            };
         </script>
 
         {block name="frontend_index_header_javascript_tracking_gtm"}{/block}

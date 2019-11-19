@@ -11,15 +11,17 @@
 
             'googleClickTriggered': false,
 
-            'resetDocumentLocation': true
+            'resetDocumentLocation': true,
+
+            'googleAnalyticsOptoutLinkSelector': '*[data-ga-optout="true"]'
         },
 
         init: function () {
             var me = this;
-
             var cookieStrategy = Cookies.get('cookieStrategy');
 
-            if ((cookieStrategy >= 1 || window.ignoreTrackingCookie) && window.isGTMLoaded === true) {
+            me._on(me.opts.googleAnalyticsOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
+            if (cookieStrategy >= 1 || window.ignoreTrackingCookie) {
                 me.applyDataAttributes();
 
                 me.$productClick = $(me.opts.productClickSelector);
@@ -174,6 +176,13 @@
                     }
                 }
             });
+        },
+
+        googleAnalyticsOptout: function () {
+            for (var id of Object.keys(window.gaData)) {
+                Cookies.set(`ga-disable-${id}`, true, { expires: new Date(3000, 1, 1) });
+            }
+            alert(window.sdGTMSnippets.googleAnalyticsOptoutSuccess);
         }
     });
 
