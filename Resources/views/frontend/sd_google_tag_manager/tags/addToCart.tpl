@@ -10,7 +10,7 @@
                         'id': "{/literal}{$sArticle.ordernumber}{literal}",
                         'price': "{/literal}{$sArticle.price}{literal}",
                         'brand': "{/literal}{$sArticle.additional_details.supplierName}{literal}",
-                        'quantity': 1
+                        'quantity': "{/literal}{$sArticle.quantity}{literal}"
                     }]
                 }
             }
