@@ -1,6 +1,7 @@
 {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
     <script>
         dataLayer.push({literal}{
+            'event': 'purchase',
             'ecommerce': {
                 'purchase': {
                     'actionField': {
