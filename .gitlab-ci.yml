@@ -42,160 +42,34 @@ cache:
 # TODO: Add publish pipeline
 
 # START MATRIX DEFINITION
-composer:php70_shopware55:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.5.10
-  extends: .composer
-
-phpspec:php70_shopware55:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.5.10
-  extends: .phpspec
-
-composer:php71_shopware55:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.5.10
-  extends: .composer
-
-phpspec:php71_shopware55:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.5.10
-  extends: .phpspec
-
-composer:php72_shopware55:
+composer:php72_shopware56:
   variables:
     PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.5.10
+    SHOPWARE_VERSION: \~5.6.4
   extends: .composer
 
-phpspec:php72_shopware55:
+phpspec:php72_shopware56:
   variables:
     PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.5.10
+    SHOPWARE_VERSION: \~5.6.4
   extends: .phpspec
 
-codingstandards:php72_shopware55:
+composer:php73_shopware56:
   variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.5.10
+    PHP_VERSION: php7.3
+    SHOPWARE_VERSION: \~5.6.4
+  extends: .composer
+
+phpspec:php73_shopware56:
+  variables:
+    PHP_VERSION: php7.3
+    SHOPWARE_VERSION: \~5.6.4
+  extends: .phpspec
+
+codingstandards:php73_shopware56:
+  variables:
+    PHP_VERSION: php7.3
+    SHOPWARE_VERSION: \~5.6.4
   extends: .codingstandards
-
-check_structure:php72_shopware55:
-  variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.5.10
-  extends: .check_structure
-
-composer:php70_shopware54:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.4.6
-  extends: .composer
-
-phpspec:php70_shopware54:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.4.6
-  extends: .phpspec
-
-composer:php71_shopware54:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.4.6
-  extends: .composer
-
-phpspec:php71_shopware54:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.4.6
-  extends: .phpspec
-
-composer:php72_shopware54:
-  variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.4.6
-  extends: .composer
-
-phpspec:php72_shopware54:
-  variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.4.6
-  extends: .phpspec
-
-composer:php70_shopware53:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.3.7
-  extends: .composer
-
-phpspec:php70_shopware53:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.3.7
-  extends: .phpspec
-
-composer:php71_shopware53:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.3.7
-  extends: .composer
-
-phpspec:php71_shopware53:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.3.7
-  extends: .phpspec
-
-composer:php72_shopware53:
-  variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.3.7
-  extends: .composer
-
-phpspec:php72_shopware53:
-  variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.3.7
-  extends: .phpspec
-
-composer:php70_shopware52:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.2.27
-  extends: .composer
-
-phpspec:php70_shopware52:
-  variables:
-    PHP_VERSION: php7.0
-    SHOPWARE_VERSION: \~5.2.27
-  extends: .phpspec
-
-composer:php71_shopware52:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.2.27
-  extends: .composer
-
-phpspec:php71_shopware52:
-  variables:
-    PHP_VERSION: php7.1
-    SHOPWARE_VERSION: \~5.2.27
-  extends: .phpspec
-
-composer:php72_shopware52:
-  variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.2.27
-  extends: .composer
-
-phpspec:php72_shopware52:
-  variables:
-    PHP_VERSION: php7.2
-    SHOPWARE_VERSION: \~5.2.27
-  extends: .phpspec
 
 # END MATRIX DEFINITION
