@@ -1,7 +1,7 @@
 {extends file="parent:frontend/checkout/change_payment.tpl"}
 
 {block name='frontend_checkout_payment_fieldset_input_radio'}
-    {if $submittedStepNumber == 3 and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
+    {if $submittedStepNumber == 3 and $sdGoogleTagManagerTrackingActive}
         {* Current selected payment *}
         {if $sUserData.additional.payment.id == $payment_mean.id}
             <script>

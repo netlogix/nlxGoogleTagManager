@@ -18,10 +18,9 @@
 
         init: function () {
             var me = this;
-            var cookieStrategy = Cookies.get('cookieStrategy');
 
             me._on(me.opts.googleAnalyticsOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
-            if (cookieStrategy >= 1 || window.ignoreTrackingCookie) {
+            if (window.sdGoogleTagManagerTrackingActive) {
                 me.applyDataAttributes();
 
                 me.$productClick = $(me.opts.productClickSelector);

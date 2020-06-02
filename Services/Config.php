@@ -70,13 +70,8 @@ class Config implements ConfigInterface
         return $this->get('sdGoogleTagManagerRemarketingEnabled');
     }
 
-    /**
-     * Checks if cookieStrategy-Cookie should be ignored
-     *
-     * @return bool
-     */
-    public function ignoreTrackingCookie()
+    public function useCookieConsentManager(): bool
     {
-        return $this->get('sdGoogleTagManagerIgnoreTrackingCookie');
+        return  $this->get('sdGoogleTagManagerUseCookieConsentManager');
     }
 }

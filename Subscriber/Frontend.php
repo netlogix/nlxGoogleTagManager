@@ -11,15 +11,21 @@ namespace sdGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
 use sdGoogleTagManager\Services\Config;
+use sdGoogleTagManager\Services\TrackingConsentServiceInterface;
+use Shopware\Bundle\CookieBundle\Services\CookieHandler;
 
 class Frontend implements SubscriberInterface
 {
     /** @var Config */
     private $config;
 
-    public function __construct(Config $config)
+    /** @var TrackingConsentServiceInterface */
+    private $trackingConsentService;
+
+    public function __construct(Config $config, TrackingConsentServiceInterface $trackingConsentService)
     {
         $this->config = $config;
+        $this->trackingConsentService = $trackingConsentService;
     }
 
     public static function getSubscribedEvents()
@@ -29,22 +35,20 @@ class Frontend implements SubscriberInterface
         ];
     }
 
-    public function onFrontendPostDispatch(\Enlight_Event_EventArgs $args)
+    public function onFrontendPostDispatch(\Enlight_Controller_ActionEventArgs $args)
     {
-        $controller = $args->get('subject');
-        $view = $controller->View();
+        $view = $args->getSubject()->View();
 
-        $cookieStrategy = (int) Shopware()->Front()->Request()->getCookie('cookieStrategy', 0);
-        $ignoreCookieStrategy = $this->config->ignoreTrackingCookie();
-
-        $viewParameters = [];
-        $viewParameters['sdCookieStrategy'] = $cookieStrategy;
-        $viewParameters['sdGoogleTagManagerIgnoreTrackingCookie'] = $ignoreCookieStrategy;
-        if (true === $ignoreCookieStrategy || $cookieStrategy >= 1) {
-            $viewParameters['sdGoogleTagManagerTrackingId'] = $this->config->getGoogleTagManagerTrackingId();
-            $viewParameters['sdGoogleTagManagerRemarketingEnabled'] = $this->config->isRemarketingEnabled();
+        $enableTracking = true;
+        if ($this->config->useCookieConsentManager()) {
+            $cookiePreferences = $args->getRequest()->getCookie(CookieHandler::PREFERENCES_COOKIE_NAME);
+            $enableTracking = $this->trackingConsentService->enableTracking($cookiePreferences);
         }
 
-        $view->assign($viewParameters);
+        $view->assign([
+            'sdGoogleTagManagerTrackingActive' => $enableTracking,
+            'sdGoogleTagManagerTrackingId' => $this->config->getGoogleTagManagerTrackingId(),
+            'sdGoogleTagManagerRemarketingEnabled' => $this->config->isRemarketingEnabled(),
+        ]);
     }
 }

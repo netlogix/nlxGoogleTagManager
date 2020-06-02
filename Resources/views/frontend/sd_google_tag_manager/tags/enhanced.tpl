@@ -1,4 +1,4 @@
-{if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
+{if $sdGoogleTagManagerTrackingActive}
     {if {controllerName|lower} == 'detail'}
         {include file="frontend/sd_google_tag_manager/tags/enhanced/detail.tpl"}
     {elseif {controllerName|lower} == 'checkout'}

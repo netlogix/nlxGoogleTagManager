@@ -3,17 +3,17 @@
 {block name="frontend_index_header_javascript_tracking"}
     {$smarty.block.parent}
 
-    {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
+    <script>
+        window.sdGoogleTagManagerTrackingActive = {$sdGoogleTagManagerTrackingActive};
+        var dataLayer = dataLayer || [];
+
+        window.sdGTMSnippets = {
+            'googleAnalyticsOptoutSuccess': '{s namespace="frontend/plugins/sdGoogleTagManager" name="GoogleAnalyticsOptoutSuccess"}{/s}'
+        };
+    </script>
+
+    {if $sdGoogleTagManagerTrackingActive}
         <!-- Google Tag Manager -->
-        <script>
-            window.ignoreTrackingCookie = {$sdGoogleTagManagerIgnoreTrackingCookie};
-            var dataLayer = dataLayer || [];
-
-            window.sdGTMSnippets = {
-                'googleAnalyticsOptoutSuccess': '{s namespace="frontend/plugins/sdGoogleTagManager" name="GoogleAnalyticsOptoutSuccess"}{/s}'
-            };
-        </script>
-
         {block name="frontend_index_header_javascript_tracking_gtm"}{/block}
 
         <script>

@@ -1,7 +1,7 @@
 {extends file="parent:frontend/index/index.tpl"}
 
 {block name="frontend_index_header"}
-    {if $sBasket.content and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
+    {if $sBasket.content and $sdGoogleTagManagerTrackingActive}
         {strip}
             <script>
                 if (typeof globalBasketProducts == 'undefined') {
@@ -28,7 +28,7 @@
 {/block}
 
 {block name='frontend_index_after_body'}
-    {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
+    {if $sdGoogleTagManagerTrackingActive}
         <!-- Google Tag Manager (noscript) -->
         <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id={$sdGoogleTagManagerTrackingId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>

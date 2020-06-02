@@ -1,4 +1,4 @@
-{if $sArticles and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
+{if $sArticles and $sdGoogleTagManagerTrackingActive}
     <script>
         dataLayer.push({literal}{
             'ecommerce': {

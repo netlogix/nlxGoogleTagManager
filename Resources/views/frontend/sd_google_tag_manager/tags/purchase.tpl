@@ -1,4 +1,4 @@
-{if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
+{if $sdGoogleTagManagerTrackingActive}
     <script>
         dataLayer.push({literal}{
             'event': 'purchase',
