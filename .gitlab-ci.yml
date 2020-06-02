@@ -21,7 +21,7 @@ cache:
 
 .phpspec:
   stage: test
-  image: solutiondrive/php-xdebug:${PHP_VERSION}
+  image: solutiondrive/php:${PHP_VERSION}
   script:
     - vendor/bin/phpspec-standalone.${PHP_VERSION}.phar run --no-code-generation --format=dot
 
