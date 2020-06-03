@@ -13,7 +13,10 @@ use Enlight\Event\SubscriberInterface;
 
 class Listing implements SubscriberInterface
 {
-    public static function getSubscribedEvents()
+    /**
+     * @return string[]
+     */
+    public static function getSubscribedEvents(): array
     {
         return [
             'Enlight_Controller_Action_PostDispatch_Frontend_Listing' => 'onPostDispatchFrontendListing',
@@ -21,10 +24,7 @@ class Listing implements SubscriberInterface
         ];
     }
 
-    /**
-     * @param \Enlight_Controller_ActionEventArgs $args
-     */
-    public function onPostDispatchFrontendListing(\Enlight_Controller_ActionEventArgs $args)
+    public function onPostDispatchFrontendListing(\Enlight_Controller_ActionEventArgs $args): void
     {
         $controller = $args->getSubject();
 
@@ -38,10 +38,7 @@ class Listing implements SubscriberInterface
         ]);
     }
 
-    /**
-     * @param \Enlight_Controller_ActionEventArgs $args
-     */
-    public function onPostDispatchWidgetListing(\Enlight_Controller_ActionEventArgs $args)
+    public function onPostDispatchWidgetListing(\Enlight_Controller_ActionEventArgs $args): void
     {
         $controller = $args->getSubject();
         $request = $controller->Request();
@@ -62,13 +59,7 @@ class Listing implements SubscriberInterface
         ]);
     }
 
-    /**
-     * @param $index
-     * @param $count
-     *
-     * @return int
-     */
-    public function getArticleCounterStart($index, $count)
+    public function getArticleCounterStart(int $index, int $count): int
     {
         if ($index <= 1) {
             return 1;

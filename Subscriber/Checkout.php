@@ -13,13 +13,19 @@ use Enlight\Event\SubscriberInterface;
 
 class Checkout implements SubscriberInterface
 {
-    public static function getSubscribedEvents()
+    /**
+     * @return string[]
+     */
+    public static function getSubscribedEvents(): array
     {
         return [
             'Shopware_Controllers_Frontend_Checkout::addArticleAction::after' => 'onAddArticleAfter',
         ];
     }
 
+    /**
+     * @return mixed
+     */
     public function onAddArticleAfter(\Enlight_Hook_HookArgs $args)
     {
         $controller = $args->getSubject();
