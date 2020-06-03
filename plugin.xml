@@ -31,7 +31,7 @@
         <changes lang="de">Bugfix: Anpassungen an den Werten, sodass ein ' in einem Artikelnamen keine Probleme verursacht</changes>
         <changes lang="en">Bugfix: Changes to prevent errors when article names contains a '</changes>
     </changelog>
-    <changelog version="1.2.0">
+    <changelog version="2.0.0">
         <changes lang="de">Support für Shopware Cookie Consent Manager implementiert</changes>
         <changes lang="en">Implemented support for Shopware cookie consent manager</changes>
     </changelog>
