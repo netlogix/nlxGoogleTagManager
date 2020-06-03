@@ -37,7 +37,7 @@ class TemplateRegistration implements SubscriberInterface
         ];
     }
 
-    public function onStartDispatch()
+    public function onStartDispatch(): void
     {
         $this->templateManager->addTemplateDir($this->pluginDirectory . '/Resources/views');
     }

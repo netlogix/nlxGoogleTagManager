@@ -13,13 +13,13 @@ interface ConfigInterface
 {
     /**
      * Gets the complete config
+     *
+     * @return mixed[]
      */
-    public function getConfig();
+    public function getConfig(): array;
 
     /**
      * Gets a specific config value by key
-     *
-     * @param string $key
      *
      * @return mixed
      */
@@ -27,9 +27,6 @@ interface ConfigInterface
 
     /**
      * Sets a specific config value
-     *
-     * @param string $key
-     * @param string $value
      */
-    public function set(string $key, string $value);
+    public function set(string $key, string $value): void;
 }

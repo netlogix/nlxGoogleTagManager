@@ -18,7 +18,7 @@ class Config implements ConfigInterface
      */
     const PLUGIN_NAME = 'sdGoogleTagManager';
 
-    /** @var array */
+    /** @var mixed[] */
     protected $config;
 
     public function __construct(CachedConfigReader $configReader)
@@ -29,7 +29,7 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function set(string $key, string $value)
+    public function set(string $key, string $value): void
     {
         $this->config[$key] = $value;
     }
@@ -45,17 +45,15 @@ class Config implements ConfigInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         return $this->config;
     }
 
     /**
      * Gets the google tag manager id from config
-     *
-     * @return bool
      */
-    public function getGoogleTagManagerTrackingId()
+    public function getGoogleTagManagerTrackingId(): bool
     {
         return $this->get('sdGoogleTagManagerTrackingId');
     }

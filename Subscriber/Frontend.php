@@ -28,14 +28,17 @@ class Frontend implements SubscriberInterface
         $this->trackingConsentService = $trackingConsentService;
     }
 
-    public static function getSubscribedEvents()
+    /**
+     *  @return string[]
+     */
+    public static function getSubscribedEvents(): array
     {
         return [
             'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onFrontendPostDispatch',
         ];
     }
 
-    public function onFrontendPostDispatch(\Enlight_Controller_ActionEventArgs $args)
+    public function onFrontendPostDispatch(\Enlight_Controller_ActionEventArgs $args): void
     {
         $view = $args->getSubject()->View();
 
