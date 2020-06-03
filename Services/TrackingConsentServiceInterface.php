@@ -11,7 +11,7 @@ namespace sdGoogleTagManager\Services;
 
 interface TrackingConsentServiceInterface
 {
-    public const COOKIE_NAME = 'nlxFacebookTracking';
+    public const COOKIE_NAME = 'sdGoogleTagManager';
 
     public function enableTracking(?string $cookiePreferences): bool;
 }

@@ -45,7 +45,7 @@ class CookieCollectionSubscriber implements SubscriberInterface
             $cookies->add(new CookieStruct(
                 TrackingConsentServiceInterface::COOKIE_NAME,
                 '/' . TrackingConsentService::COOKIE_NAME . '/',
-                'Facebook Tracking Pixel',
+                'Google Tag Manager',
                 CookieGroupStruct::STATISTICS
             ));
         }
