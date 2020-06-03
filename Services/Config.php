@@ -53,17 +53,15 @@ class Config implements ConfigInterface
     /**
      * Gets the google tag manager id from config
      */
-    public function getGoogleTagManagerTrackingId(): bool
+    public function getGoogleTagManagerTrackingId(): string
     {
         return $this->get('sdGoogleTagManagerTrackingId');
     }
 
     /**
      * Checks if remarketing is enabled in config
-     *
-     * @return mixed
      */
-    public function isRemarketingEnabled()
+    public function isRemarketingEnabled(): bool
     {
         return $this->get('sdGoogleTagManagerRemarketingEnabled');
     }
