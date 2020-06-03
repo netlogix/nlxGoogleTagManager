@@ -26,6 +26,9 @@
         "solutiondrive/standalone-build-tools": "^1.0",
         "solutiondrive/sd-test-environment-shopware": "^0.3.2"
     },
+    "conflict": {
+        "shopware/shopware": "<5.6"
+    },
     "config": {
         "sort-packages": true,
         "standalone-build-tools": {
