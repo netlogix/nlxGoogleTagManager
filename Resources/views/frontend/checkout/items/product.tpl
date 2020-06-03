@@ -1,7 +1,7 @@
 {extends file="parent:frontend/checkout/items/product.tpl"}
 
 {block name='frontend_checkout_cart_item_delete_article_form'}
-    {if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
+    {if $sdGoogleTagManagerTrackingActive}
         <form method="post" action="{url action='deleteArticle' sDelete=$sBasketItem.id sTargetAction=$sTargetAction}"
               data-gtm-removeFromCartClick="true"
               data-gtm-name="{$sBasketItem.articlename|escape}"

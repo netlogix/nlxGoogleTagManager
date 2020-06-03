@@ -1,4 +1,4 @@
-{if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
+{if $sdGoogleTagManagerTrackingActive}
     {block name="sd_googletagmanager_tags_enhanced_checkout"}
         {include file="frontend/sd_google_tag_manager/tags/enhanced/default.tpl"}
         {literal}

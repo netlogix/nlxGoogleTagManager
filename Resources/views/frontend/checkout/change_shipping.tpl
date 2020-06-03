@@ -1,7 +1,7 @@
 {extends file="parent:frontend/checkout/change_shipping.tpl"}
 
 {block name="frontend_checkout_dispatch_shipping_input_radio"}
-    {if $submittedStepNumber == 2 and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
+    {if $submittedStepNumber == 2 and $sdGoogleTagManagerTrackingActive}
         {* Current selected Shipping method *}
         {if $sDispatch.id == $dispatch.id}
             <script>

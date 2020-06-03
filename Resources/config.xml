@@ -14,10 +14,10 @@
             <label lang="en">Remarketing parameters included?</label>
             <value>false</value>
         </element>
-        <element type="boolean" scope="shop">
-            <name>sdGoogleTagManagerIgnoreTrackingCookie</name>
-            <label lang="de">Tracking-Cookie ignorieren?</label>
-            <label lang="en">Ignore tracking cookie?</label>
+        <element type="boolean" required="true">
+            <name>sdGoogleTagManagerUseCookieConsentManager</name>
+            <label lang="de">Shopware Cookie Consent Manager verwenden?</label>
+            <label lang="en">Use Shopware cookie consent manager?</label>
             <value>false</value>
         </element>
     </elements>

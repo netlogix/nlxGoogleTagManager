@@ -1,4 +1,4 @@
-{if $sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie}
+{if $sdGoogleTagManagerTrackingActive}
     {literal}
         // Page Data (included on all Pages)
         // @todo: pageTitle for every page in shop

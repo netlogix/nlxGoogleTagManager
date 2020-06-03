@@ -1,4 +1,4 @@
-{if $sBasket.content and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
+{if $sBasket.content and $sdGoogleTagManagerTrackingActive}
     {literal}
         {
             'ecomm_pagetype': 'cart',

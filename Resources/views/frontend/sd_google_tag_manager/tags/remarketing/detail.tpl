@@ -1,4 +1,4 @@
-{if $sArticle and ($sdCookieStrategy >= 1 or $sdGoogleTagManagerIgnoreTrackingCookie)}
+{if $sArticle and $sdGoogleTagManagerTrackingActive}
     {literal}
         {
             'ecomm_pagetype': 'product',
