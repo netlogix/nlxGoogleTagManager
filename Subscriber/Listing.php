@@ -30,8 +30,8 @@ class Listing implements SubscriberInterface
 
         $view = $controller->View();
 
-        $pageIndex = $view->getAssign('sPage');
-        $articlesCount = $view->getAssign('sPerPage');
+        $pageIndex = $view->getAssign('sPage') ?? 0;
+        $articlesCount = $view->getAssign('sPerPage') ?? 0;
 
         $view->assign([
             'pageArticleCounterStart' => $this->getArticleCounterStart($pageIndex, $articlesCount),
@@ -49,7 +49,7 @@ class Listing implements SubscriberInterface
 
         $view = $controller->View();
 
-        $articles = $view->getAssign('sArticles');
+        $articles = $view->getAssign('sArticles') ?? [];
 
         $pageIndex = (int) $view->getAssign('pageIndex');
         $articlesCount = \count($articles);

@@ -80,6 +80,23 @@ class ListingSpec extends ObjectBehavior
         $this->onPostDispatchFrontendListing($args);
     }
 
+    public function it_assigns_correct_value_on_post_dispatch_frontend_listing_without_correct_page_data(
+        \Enlight_Controller_ActionEventArgs $args,
+        \Enlight_View_Default $view
+    ): void {
+        $view->getAssign('sPage')
+            ->willReturn(null);
+        $view->getAssign('sPerPage')
+            ->willReturn(null);
+
+        $view->assign([
+            'pageArticleCounterStart' => 1,
+        ])
+            ->shouldBeCalled();
+
+        $this->onPostDispatchFrontendListing($args);
+    }
+
     public function it_assigns_correct_value_on_post_dispatch_widget_listing(
         \Enlight_Controller_ActionEventArgs $args,
         \Enlight_View_Default $view,
@@ -100,6 +117,27 @@ class ListingSpec extends ObjectBehavior
 
         $view->assign([
             'pageArticleCounterStart' => 17,
+        ])
+            ->shouldBeCalled();
+
+        $this->onPostDispatchWidgetListing($args);
+    }
+
+    public function it_assigns_correct_value_on_post_dispatch_widget_listing_without_correct_page_data(
+        \Enlight_Controller_ActionEventArgs $args,
+        \Enlight_View_Default $view,
+        \Enlight_Controller_Request_Request $request
+    ): void {
+        $request->getActionName()
+            ->willReturn('ajaxListing');
+
+        $view->getAssign('pageIndex')
+            ->willReturn(null);
+        $view->getAssign('sArticles')
+            ->willReturn(null);
+
+        $view->assign([
+            'pageArticleCounterStart' => 1,
         ])
             ->shouldBeCalled();
 
