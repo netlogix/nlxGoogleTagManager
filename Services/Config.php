@@ -66,8 +66,19 @@ class Config implements ConfigInterface
         return $this->get('sdGoogleTagManagerRemarketingEnabled');
     }
 
+    /**
+     * Checks if the google tag manager is displayed in the shopware consent manager
+     */
     public function useCookieConsentManager(): bool
     {
-        return  $this->get('sdGoogleTagManagerUseCookieConsentManager');
+        return $this->get('sdGoogleTagManagerUseCookieConsentManager');
+    }
+
+    /**
+     * Returns the name of the google tag manager plugin for the shopware consent manager
+     */
+    public function getConsentManagerName(): string
+    {
+        return $this->get('sdGoogleTagManagerConsentManagerName');
     }
 }
