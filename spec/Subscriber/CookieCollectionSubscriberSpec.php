@@ -12,14 +12,20 @@ namespace spec\sdGoogleTagManager\Subscriber;
 use Enlight\Event\SubscriberInterface;
 use PhpSpec\ObjectBehavior;
 use sdGoogleTagManager\Services\Config;
+use sdGoogleTagManager\Services\TrackingConsentService;
 use sdGoogleTagManager\Services\TrackingConsentServiceInterface;
 use sdGoogleTagManager\Subscriber\CookieCollectionSubscriber;
 use Shopware\Bundle\CookieBundle\CookieCollection;
 
 class CookieCollectionSubscriberSpec extends ObjectBehavior
 {
+    const COOKIE_LABEL = 'Google Tag Manager';
+
     public function let(Config $config): void
     {
+        $config->getConsentManagerName()
+            ->willReturn(self::COOKIE_LABEL);
+
         $this->beConstructedWith($config);
     }
 
@@ -33,7 +39,7 @@ class CookieCollectionSubscriberSpec extends ObjectBehavior
         $this->shouldImplement(SubscriberInterface::class);
     }
 
-    public function it_should_add_the_facebookTrackingPixel_cookie_if_the_plugin_uses_the_cookie_consent_manager(
+    public function it_should_add_the_googleTagManager_cookie_if_the_plugin_uses_the_cookie_consent_manager(
         Config $config
     ): void {
         $config->useCookieConsentManager()
@@ -44,7 +50,7 @@ class CookieCollectionSubscriberSpec extends ObjectBehavior
             ->shouldReturn(true);
     }
 
-    public function it_should_not_add_the_facebookTrackingPixel_cookie_if_the_plugin_is_not_using_the_cookie_consent_manager(
+    public function it_should_not_add_the_googleTagManager_cookie_if_the_plugin_is_not_using_the_cookie_consent_manager(
         Config $config
     ): void {
         $config->useCookieConsentManager()
@@ -52,5 +58,36 @@ class CookieCollectionSubscriberSpec extends ObjectBehavior
 
         $this->addCookies()
             ->shouldBeLike(new CookieCollection());
+    }
+
+    public function it_should_use_the_default_label_if_not_specified_in_the_plugin_configuration(
+        Config $config
+    ): void {
+        $config->useCookieConsentManager()
+            ->willReturn(true);
+
+        $result = $this->addCookies();
+
+        $result->getCookieByName(TrackingConsentService::COOKIE_NAME)
+            ->getLabel()
+            ->shouldEqual(self::COOKIE_LABEL);
+    }
+
+    public function it_should_use_the_users_label_if_specified_in_the_plugin_configuration(
+        Config $config
+    ): void {
+        $consentManagerName = 'Some Other Service';
+
+        $config->useCookieConsentManager()
+            ->willReturn(true);
+
+        $config->getConsentManagerName()
+            ->willReturn($consentManagerName);
+
+        $result = $this->addCookies();
+
+        $result->getCookieByName(TrackingConsentService::COOKIE_NAME)
+            ->getLabel()
+            ->shouldEqual($consentManagerName);
     }
 }

@@ -45,7 +45,7 @@ class CookieCollectionSubscriber implements SubscriberInterface
             $cookies->add(new CookieStruct(
                 TrackingConsentServiceInterface::COOKIE_NAME,
                 '/' . TrackingConsentService::COOKIE_NAME . '/',
-                'Google Tag Manager',
+                $this->config->getConsentManagerName(),
                 CookieGroupStruct::STATISTICS
             ));
         }
