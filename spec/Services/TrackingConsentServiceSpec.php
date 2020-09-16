@@ -7,11 +7,11 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace spec\sdGoogleTagManager\Services;
+namespace spec\nlxGoogleTagManager\Services;
 
 use Prophecy\Argument;
-use sdGoogleTagManager\Services\TrackingConsentService;
-use sdGoogleTagManager\Services\TrackingConsentServiceInterface;
+use nlxGoogleTagManager\Services\TrackingConsentService;
+use nlxGoogleTagManager\Services\TrackingConsentServiceInterface;
 use PhpSpec\ObjectBehavior;
 use Shopware\Bundle\CookieBundle\Services\CookieHandlerInterface;
 

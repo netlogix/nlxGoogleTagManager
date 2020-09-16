@@ -7,14 +7,14 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace spec\sdGoogleTagManager\Subscriber;
+namespace spec\nlxGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
 use PhpSpec\ObjectBehavior;
-use sdGoogleTagManager\Services\Config;
-use sdGoogleTagManager\Services\TrackingConsentService;
-use sdGoogleTagManager\Services\TrackingConsentServiceInterface;
-use sdGoogleTagManager\Subscriber\CookieCollectionSubscriber;
+use nlxGoogleTagManager\Services\Config;
+use nlxGoogleTagManager\Services\TrackingConsentService;
+use nlxGoogleTagManager\Services\TrackingConsentServiceInterface;
+use nlxGoogleTagManager\Subscriber\CookieCollectionSubscriber;
 use Shopware\Bundle\CookieBundle\CookieCollection;
 
 class CookieCollectionSubscriberSpec extends ObjectBehavior

@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace sdGoogleTagManager\Services;
+namespace nlxGoogleTagManager\Services;
 
 use Shopware\Components\Plugin\CachedConfigReader;
 
@@ -16,7 +16,7 @@ class Config implements ConfigInterface
     /**
      * Pluginname (extendable, in static context)
      */
-    const PLUGIN_NAME = 'sdGoogleTagManager';
+    const PLUGIN_NAME = 'nlxGoogleTagManager';
 
     /** @var mixed[] */
     protected $config;
@@ -55,7 +55,7 @@ class Config implements ConfigInterface
      */
     public function getGoogleTagManagerTrackingId(): string
     {
-        return $this->get('sdGoogleTagManagerTrackingId');
+        return $this->get('nlxGoogleTagManagerTrackingId');
     }
 
     /**
@@ -63,7 +63,7 @@ class Config implements ConfigInterface
      */
     public function isRemarketingEnabled(): bool
     {
-        return $this->get('sdGoogleTagManagerRemarketingEnabled');
+        return $this->get('nlxGoogleTagManagerRemarketingEnabled');
     }
 
     /**
@@ -71,7 +71,7 @@ class Config implements ConfigInterface
      */
     public function useCookieConsentManager(): bool
     {
-        return $this->get('sdGoogleTagManagerUseCookieConsentManager');
+        return $this->get('nlxGoogleTagManagerUseCookieConsentManager');
     }
 
     /**
@@ -79,6 +79,6 @@ class Config implements ConfigInterface
      */
     public function getConsentManagerName(): string
     {
-        return $this->get('sdGoogleTagManagerConsentManagerName');
+        return $this->get('nlxGoogleTagManagerConsentManagerName');
     }
 }

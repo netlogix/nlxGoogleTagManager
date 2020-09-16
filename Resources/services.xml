@@ -4,43 +4,43 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="sd_google_tag_manager.view_dir">%sd_google_tag_manager.plugin_dir%/Resources/views</parameter>
+        <parameter key="nlx_google_tag_manager.view_dir">%nlx_google_tag_manager.plugin_dir%/Resources/views</parameter>
     </parameters>
 
     <services>
         <!-- Subscriber -->
-        <service id="sd_google_tag_manager.subscriber.template" class="sdGoogleTagManager\Subscriber\TemplateRegistration">
-            <argument type="string">%sd_google_tag_manager.plugin_dir%</argument>
+        <service id="nlx_google_tag_manager.subscriber.template" class="nlxGoogleTagManager\Subscriber\TemplateRegistration">
+            <argument type="string">%nlx_google_tag_manager.plugin_dir%</argument>
             <argument type="service" id="template"/>
             <tag name="shopware.event_subscriber" />
         </service>
 
-        <service id="sd_google_tag_manager.subscriber.frontend" class="sdGoogleTagManager\Subscriber\Frontend">
-            <argument type="service" id="sd_google_tag_manager.service.config" />
-            <argument type="service" id="sd_google_tag_manager.service.tracking_consent"/>
+        <service id="nlx_google_tag_manager.subscriber.frontend" class="nlxGoogleTagManager\Subscriber\Frontend">
+            <argument type="service" id="nlx_google_tag_manager.service.config" />
+            <argument type="service" id="nlx_google_tag_manager.service.tracking_consent"/>
             <tag name="shopware.event_subscriber" />
         </service>
 
-        <service id="sd_google_tag_manager.subscriber.listing" class="sdGoogleTagManager\Subscriber\Listing">
+        <service id="nlx_google_tag_manager.subscriber.listing" class="nlxGoogleTagManager\Subscriber\Listing">
             <tag name="shopware.event_subscriber" />
         </service>
 
-        <service id="sd_google_tag_manager.subscriber.checkout" class="sdGoogleTagManager\Subscriber\Checkout">
+        <service id="nlx_google_tag_manager.subscriber.checkout" class="nlxGoogleTagManager\Subscriber\Checkout">
             <tag name="shopware.event_subscriber" />
         </service>
 
-        <service id="sd_google_tag_manager.subscriber.cookie_collection" class="sdGoogleTagManager\Subscriber\CookieCollectionSubscriber">
-            <argument type="service" id="sd_google_tag_manager.service.config"/>
+        <service id="nlx_google_tag_manager.subscriber.cookie_collection" class="nlxGoogleTagManager\Subscriber\CookieCollectionSubscriber">
+            <argument type="service" id="nlx_google_tag_manager.service.config"/>
             <tag name="shopware.event_subscriber"/>
         </service>
 
         <!-- Services -->
-        <service id="sd_google_tag_manager.service.config" class="sdGoogleTagManager\Services\Config">
+        <service id="nlx_google_tag_manager.service.config" class="nlxGoogleTagManager\Services\Config">
             <argument type="service" id="shopware.plugin.cached_config_reader" />
             <tag name="shopware.service_subscriber" />
         </service>
 
-        <service id="sd_google_tag_manager.service.tracking_consent" class="sdGoogleTagManager\Services\TrackingConsentService">
+        <service id="nlx_google_tag_manager.service.tracking_consent" class="nlxGoogleTagManager\Services\TrackingConsentService">
             <argument type="service" id="Shopware\Bundle\CookieBundle\Services\CookieHandler"/>
         </service>
     </services>

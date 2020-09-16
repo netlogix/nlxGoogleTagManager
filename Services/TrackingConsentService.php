@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace sdGoogleTagManager\Services;
+namespace nlxGoogleTagManager\Services;
 
 use Shopware\Bundle\CookieBundle\Services\CookieHandlerInterface;
 

@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace sdGoogleTagManager\Subscriber;
+namespace nlxGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
 

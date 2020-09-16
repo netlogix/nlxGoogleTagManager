@@ -7,13 +7,13 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace spec\sdGoogleTagManager\Subscriber;
+namespace spec\nlxGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
-use sdGoogleTagManager\Services\TrackingConsentServiceInterface;
+use nlxGoogleTagManager\Services\TrackingConsentServiceInterface;
 use PhpSpec\ObjectBehavior;
-use sdGoogleTagManager\Services\Config;
-use sdGoogleTagManager\Subscriber\Frontend;
+use nlxGoogleTagManager\Services\Config;
+use nlxGoogleTagManager\Subscriber\Frontend;
 use Shopware\Bundle\CookieBundle\Services\CookieHandler;
 
 class FrontendSpec extends ObjectBehavior
@@ -66,9 +66,9 @@ class FrontendSpec extends ObjectBehavior
             ->willReturn(false);
 
         $view->assign([
-            'sdGoogleTagManagerTrackingActive' => true,
-            'sdGoogleTagManagerTrackingId' => 'GTM-123',
-            'sdGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerTrackingActive' => true,
+            'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleTagManagerRemarketingEnabled' => true,
         ])->shouldBeCalled();
 
         $this->onFrontendPostDispatch($args);
@@ -91,9 +91,9 @@ class FrontendSpec extends ObjectBehavior
             ->willReturn(false);
 
         $view->assign([
-            'sdGoogleTagManagerTrackingActive' => false,
-            'sdGoogleTagManagerTrackingId' => 'GTM-123',
-            'sdGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerTrackingActive' => false,
+            'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleTagManagerRemarketingEnabled' => true,
         ])->shouldBeCalled();
 
         $this->onFrontendPostDispatch($args);
@@ -116,9 +116,9 @@ class FrontendSpec extends ObjectBehavior
             ->shouldNotBeCalled();
 
         $view->assign([
-            'sdGoogleTagManagerTrackingActive' => true,
-            'sdGoogleTagManagerTrackingId' => 'GTM-123',
-            'sdGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerTrackingActive' => true,
+            'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleTagManagerRemarketingEnabled' => true,
         ])->shouldBeCalled();
 
         $this->onFrontendPostDispatch($args);
