@@ -42,10 +42,10 @@ class Frontend implements SubscriberInterface
     {
         $view = $args->getSubject()->View();
 
-        $enableTracking = true;
+        $enableTracking = 1;
         if ($this->config->useCookieConsentManager()) {
             $cookiePreferences = $args->getRequest()->getCookie(CookieHandler::PREFERENCES_COOKIE_NAME);
-            $enableTracking = $this->trackingConsentService->enableTracking($cookiePreferences);
+            $enableTracking = (int) $this->trackingConsentService->enableTracking($cookiePreferences);
         }
 
         $view->assign([
