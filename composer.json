@@ -17,6 +17,11 @@
             "nlxGoogleTagManager\\": "."
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\nlxGoogleTagManager\\": "./spec"
+        }
+    },
     "require": {
         "php": "^7.2"
     },
