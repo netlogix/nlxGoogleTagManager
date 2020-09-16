@@ -1,4 +1,4 @@
-{if $sdGoogleTagManagerTrackingActive}
+{if $nlxGoogleTagManagerTrackingActive}
     <script>
         dataLayer.push({literal}{
             'event': 'checkout',
@@ -11,7 +11,7 @@
                     'products': window.globalBasketProducts
                 }
             },
-            {/literal}{include file="frontend/sd_google_tag_manager/tags/enhanced.tpl"}{literal}
+            {/literal}{include file="frontend/nlx_google_tag_manager/tags/enhanced.tpl"}{literal}
         }{/literal});
     </script>
 {/if}
