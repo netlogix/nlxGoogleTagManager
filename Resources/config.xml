@@ -3,25 +3,25 @@
         xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
     <elements>
         <element type="text" scope="shop">
-            <name>sdGoogleTagManagerTrackingId</name>
+            <name>nlxGoogleTagManagerTrackingId</name>
             <label lang="de">Google Tag Manager tracking id</label>
             <label lang="en">Google tag manager tracking id</label>
             <value>GTM-XXXX</value>
         </element>
         <element type="boolean" scope="shop">
-            <name>sdGoogleTagManagerRemarketingEnabled</name>
+            <name>nlxGoogleTagManagerRemarketingEnabled</name>
             <label lang="de">Remarketing Parameter einbinden?</label>
             <label lang="en">Remarketing parameters included?</label>
             <value>false</value>
         </element>
         <element type="boolean" required="true">
-            <name>sdGoogleTagManagerUseCookieConsentManager</name>
+            <name>nlxGoogleTagManagerUseCookieConsentManager</name>
             <label lang="de">Shopware Cookie Consent Manager verwenden?</label>
             <label lang="en">Use Shopware cookie consent manager?</label>
             <value>false</value>
         </element>
         <element type="text" scope="shop">
-            <name>sdGoogleTagManagerConsentManagerName</name>
+            <name>nlxGoogleTagManagerConsentManagerName</name>
             <label lang="de">Name im Shopware Consent Manager</label>
             <label lang="en">Google tag manager consent manager name</label>
             <value>Google Tag Manager</value>
