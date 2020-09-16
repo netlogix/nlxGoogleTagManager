@@ -1,6 +1,6 @@
 suites:
   default:
-    namespace: nlyGoogleTagManager
+    namespace: nlxGoogleTagManager
     psr4_prefix: nlxGoogleTagManager
     spec_path: ./
     src_path: ./
