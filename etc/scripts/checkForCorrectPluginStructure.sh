@@ -11,7 +11,7 @@ fi
 
 if [[ true == $IS_OLD_PLUGIN_STRUCTURE ]]; then
     echo 'Old plugin structure is not supported, please update to new plugin structure!';
-    echo 'https://bitbucket.org/solutionbucket/shopwarepluginskeleton will create a plugin with new structure for you';
+    echo 'https://gitlab.com/solutionDrive/shopwarepluginskeleton will create a plugin with new structure for you';
     exit 1;
 fi
 exit 0;
