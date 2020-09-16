@@ -10,7 +10,7 @@
          verbose="true">
 
     <testsuites>
-        <testsuite name="sdGoogleTagManager_AllTests">
+        <testsuite name="nlxGoogleTagManager_AllTests">
             <directory>./tests/Unit</directory>
             <directory>./tests/Functional</directory>
         </testsuite>
