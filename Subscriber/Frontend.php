@@ -7,11 +7,11 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace sdGoogleTagManager\Subscriber;
+namespace nlxGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
-use sdGoogleTagManager\Services\Config;
-use sdGoogleTagManager\Services\TrackingConsentServiceInterface;
+use nlxGoogleTagManager\Services\Config;
+use nlxGoogleTagManager\Services\TrackingConsentServiceInterface;
 use Shopware\Bundle\CookieBundle\Services\CookieHandler;
 
 class Frontend implements SubscriberInterface
@@ -49,9 +49,9 @@ class Frontend implements SubscriberInterface
         }
 
         $view->assign([
-            'sdGoogleTagManagerTrackingActive' => $enableTracking,
-            'sdGoogleTagManagerTrackingId' => $this->config->getGoogleTagManagerTrackingId(),
-            'sdGoogleTagManagerRemarketingEnabled' => $this->config->isRemarketingEnabled(),
+            'nlxGoogleTagManagerTrackingActive' => $enableTracking,
+            'nlxGoogleTagManagerTrackingId' => $this->config->getGoogleTagManagerTrackingId(),
+            'nlxGoogleTagManagerRemarketingEnabled' => $this->config->isRemarketingEnabled(),
         ]);
     }
 }

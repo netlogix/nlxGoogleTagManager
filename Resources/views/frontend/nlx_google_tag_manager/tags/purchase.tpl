@@ -1,4 +1,4 @@
-{if $sdGoogleTagManagerTrackingActive}
+{if $nlxGoogleTagManagerTrackingActive}
     <script>
         dataLayer.push({literal}{
             'event': 'purchase',

@@ -1,6 +1,6 @@
-{if $sdGoogleTagManagerTrackingActive}
-    {block name="sd_googletagmanager_tags_enhanced_checkout"}
-        {include file="frontend/sd_google_tag_manager/tags/enhanced/default.tpl"}
+{if $nlxGoogleTagManagerTrackingActive}
+    {block name="nlx_googletagmanager_tags_enhanced_checkout"}
+        {include file="frontend/nlx_google_tag_manager/tags/enhanced/default.tpl"}
         {literal}
             'conversionDate': "{/literal}{$smarty.now|date_format:"%d.%m.%Y"}{literal}",
             'conversionValue': {/literal}{if $sAmount}{$sAmount}{else}0{/if}{literal},

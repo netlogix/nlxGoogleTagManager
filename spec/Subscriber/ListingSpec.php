@@ -7,12 +7,12 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace spec\sdGoogleTagManager\Subscriber;
+namespace spec\nlxGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use sdGoogleTagManager\Subscriber\Listing;
+use nlxGoogleTagManager\Subscriber\Listing;
 
 class ListingSpec extends ObjectBehavior
 {

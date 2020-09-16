@@ -7,12 +7,12 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace sdGoogleTagManager\Subscriber;
+namespace nlxGoogleTagManager\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
-use sdGoogleTagManager\Services\Config;
-use sdGoogleTagManager\Services\TrackingConsentService;
-use sdGoogleTagManager\Services\TrackingConsentServiceInterface;
+use nlxGoogleTagManager\Services\Config;
+use nlxGoogleTagManager\Services\TrackingConsentService;
+use nlxGoogleTagManager\Services\TrackingConsentServiceInterface;
 use Shopware\Bundle\CookieBundle\CookieCollection;
 use Shopware\Bundle\CookieBundle\Structs\CookieGroupStruct;
 use Shopware\Bundle\CookieBundle\Structs\CookieStruct;

@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 /*
- * Created by solutionDrive GmbH
+ * Created by netlogix GmbH & Co. KG
  *
- * @copyright 2018 solutionDrive GmbH
+ * @copyright netlogix GmbH & Co. KG
  */%namespace_block%
 
 class %name% implements %name%Interface

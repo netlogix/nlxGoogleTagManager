@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 /*
- * Created by solutionDrive GmbH
+ * Created by netlogix GmbH & Co. KG
  *
- * @copyright 2018 solutionDrive GmbH
+ * @copyright netlogix GmbH & Co. KG
  */
 
 namespace %namespace%;
@@ -20,7 +20,7 @@ class %name% extends ObjectBehavior
         $this->shouldHaveType(%subject_class%::class);
     }
 
-    public function it_implements_%subject_class%_interface()
+    public function it_implements_correct_interface()
     {
         $this->shouldImplement(%subject_class%Interface::class);
     }

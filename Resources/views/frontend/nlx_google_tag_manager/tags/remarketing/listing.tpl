@@ -1,4 +1,4 @@
-{if $sArticles and $sdGoogleTagManagerTrackingActive}
+{if $sArticles and $nlxGoogleTagManagerTrackingActive}
     {literal}
         {
             'ecomm_pagetype': 'category',

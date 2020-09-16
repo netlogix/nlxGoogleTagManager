@@ -7,11 +7,11 @@ declare(strict_types=1);
  * @copyright netlogix GmbH & Co. KG
  */
 
-namespace sdGoogleTagManager\Services;
+namespace nlxGoogleTagManager\Services;
 
 interface TrackingConsentServiceInterface
 {
-    public const COOKIE_NAME = 'sdGoogleTagManager';
+    public const COOKIE_NAME = 'nlxGoogleTagManager';
 
     public function enableTracking(?string $cookiePreferences): bool;
 }

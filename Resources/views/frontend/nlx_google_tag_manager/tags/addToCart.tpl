@@ -1,4 +1,4 @@
-{if $sArticle and $sdGoogleTagManagerTrackingActive}
+{if $sArticle and $nlxGoogleTagManagerTrackingActive}
     <script>
         dataLayer.push({literal}{
             'event': "addToCart",

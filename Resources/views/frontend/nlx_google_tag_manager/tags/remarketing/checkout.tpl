@@ -1,4 +1,4 @@
-{if $sBasket.content and $sdGoogleTagManagerTrackingActive}
+{if $sBasket.content and $nlxGoogleTagManagerTrackingActive}
     {literal}
         {
             'ecomm_pagetype': 'cart',

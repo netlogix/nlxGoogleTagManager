@@ -1,4 +1,4 @@
-{if $sArticles and $sdGoogleTagManagerTrackingActive}
+{if $sArticles and $nlxGoogleTagManagerTrackingActive}
     <script>
         dataLayer.push({literal}{
             'ecommerce': {
@@ -23,7 +23,7 @@
                     {literal}
                 ]
             },
-            {/literal}{include file="frontend/sd_google_tag_manager/tags/enhanced.tpl"}{literal}
+            {/literal}{include file="frontend/nlx_google_tag_manager/tags/enhanced.tpl"}{literal}
         }{/literal});
     </script>
 {/if}

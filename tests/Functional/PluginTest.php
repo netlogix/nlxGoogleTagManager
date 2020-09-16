@@ -1,20 +1,20 @@
 <?php
 
-namespace sdGoogleTagManager\Tests;
+namespace nlxGoogleTagManager\Tests;
 
-use sdGoogleTagManager\sdGoogleTagManager as Plugin;
+use nlxGoogleTagManager\nlxGoogleTagManager as Plugin;
 use Shopware\Components\Test\Plugin\TestCase;
 
 class PluginTest extends TestCase
 {
     protected static $ensureLoadedPlugins = [
-        'sdGoogleTagManager' => []
+        'nlxGoogleTagManager' => []
     ];
 
     public function testCanCreateInstance()
     {
         /** @var Plugin $plugin */
-        $plugin = Shopware()->Container()->get('kernel')->getPlugins()['sdGoogleTagManager'];
+        $plugin = Shopware()->Container()->get('kernel')->getPlugins()['nlxGoogleTagManager'];
 
         $this->assertInstanceOf(Plugin::class, $plugin);
     }

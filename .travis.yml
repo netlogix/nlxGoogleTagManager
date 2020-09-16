@@ -1,0 +1,22 @@
+language: php
+
+dist: trusty
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+matrix:
+  include:
+    - php: 7.2
+      env: SHOPWARE_VERSION=\~5.6.4
+
+before_script:
+  - ./etc/scripts/prepareComposerJson.sh
+  - composer update -n --no-progress --no-suggest
+
+script:
+  - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] && [ "${SHOPWARE_VERSION}" == "\~5.6.4" ] ); then ./etc/scripts/checkCodingStandards.sh; fi
+  - vendor/bin/phpspec-standalone.php${TRAVIS_PHP_VERSION}.phar run --no-code-generation --format=dot
+  - ./etc/scripts/checkForCorrectPluginStructure.sh
