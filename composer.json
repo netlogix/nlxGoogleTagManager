@@ -1,20 +1,20 @@
 {
-    "name": "solutiondrive/sdgoogletagmanager",
-    "description": "TODO Change this default description",
+    "name": "netlogix/nlxgoogletagmanager",
+    "description": "This plugin implements GoogleTagManager functionality to a shopware shop",
     "type": "shopware-plugin",
     "license": "proprietary",
     "authors": [
         {
-            "name": "solutionDrive GmbH",
-            "email": "info@solutiondrive.de"
+            "name": "netlogix GmbH & Co. KG",
+            "email": "websolutions@netlogix.de"
         }
     ],
     "extra": {
-        "installer-name": "sdGoogleTagManager"
+        "installer-name": "nlxGoogleTagManager"
     },
     "autoload": {
         "psr-4": {
-            "sdGoogleTagManager\\": "."
+            "nlxGoogleTagManager\\": "."
         }
     },
     "require": {
