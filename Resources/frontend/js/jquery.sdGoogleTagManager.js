@@ -1,5 +1,5 @@
 (function($, window) {
-    $.plugin('sdGoogleTagManager', {
+    $.plugin('nlxGoogleTagManager', {
         defaults: {
             'productClickSelector': '*[data-gtm-productClick="true"]',
 
@@ -20,7 +20,7 @@
             var me = this;
 
             me._on(me.opts.googleAnalyticsOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
-            if (window.sdGoogleTagManagerTrackingActive) {
+            if (window.nlxGoogleTagManagerTrackingActive) {
                 me.applyDataAttributes();
 
                 me.$productClick = $(me.opts.productClickSelector);
@@ -90,7 +90,7 @@
                 }
             };
 
-            $.publish('plugin/sdGoogleTagManager/onProductClick', [ me ]);
+            $.publish('plugin/nlxGoogleTagManager/onProductClick', [ me ]);
 
             me.pushToGoogle(obj);
         },
@@ -119,7 +119,7 @@
                 }
             };
 
-            $.publish('plugin/sdGoogleTagManager/onRemoveFromCartClick', [ me ]);
+            $.publish('plugin/nlxGoogleTagManager/onRemoveFromCartClick', [ me ]);
 
             if (me.opts.googleClickTriggered === false) {
                 me.opts.googleClickTriggered = true;
@@ -181,11 +181,11 @@
             for (var id of Object.keys(window.gaData)) {
                 Cookies.set(`ga-disable-${id}`, true, { expires: new Date(3000, 1, 1) });
             }
-            alert(window.sdGTMSnippets.googleAnalyticsOptoutSuccess);
+            alert(window.nlxGTMSnippets.googleAnalyticsOptoutSuccess);
         }
     });
 
     $(function() {
-        window.StateManager.addPlugin('body', 'sdGoogleTagManager');
+        window.StateManager.addPlugin('body', 'nlxGoogleTagManager');
     });
 })(jQuery, window);
