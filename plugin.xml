@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -38,5 +38,9 @@
     <changelog version="3.0.0">
         <changes lang="de">Plugin zu Netlogix Struktur migriert</changes>
         <changes lang="en">Plugin migrated to Netlogix structure</changes>
+    </changelog>
+    <changelog version="3.1.0">
+        <changes lang="de">Lade den Google Tag Manager nachdem der Cookie Hinweis akzeptiert wurde</changes>
+        <changes lang="en">Load the Google Tag Manager after the cookie notice has been accepted</changes>
     </changelog>
 </plugin>
