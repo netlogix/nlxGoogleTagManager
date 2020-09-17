@@ -1,4 +1,4 @@
-sdGoogleTagManager
+nlxGoogleTagManager
 ==================
 
 This plugin implements GoogleTagManager functionality to a shopware shop
