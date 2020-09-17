@@ -66,7 +66,7 @@ class FrontendSpec extends ObjectBehavior
             ->willReturn(false);
 
         $view->assign([
-            'nlxGoogleTagManagerTrackingActive' => true,
+            'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
         ])->shouldBeCalled();
@@ -91,7 +91,7 @@ class FrontendSpec extends ObjectBehavior
             ->willReturn(false);
 
         $view->assign([
-            'nlxGoogleTagManagerTrackingActive' => false,
+            'nlxGoogleTagManagerTrackingActive' => 0,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
         ])->shouldBeCalled();
@@ -116,7 +116,7 @@ class FrontendSpec extends ObjectBehavior
             ->shouldNotBeCalled();
 
         $view->assign([
-            'nlxGoogleTagManagerTrackingActive' => true,
+            'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
         ])->shouldBeCalled();
