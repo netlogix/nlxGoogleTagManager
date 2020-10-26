@@ -53,7 +53,7 @@ class TrackingConsentServiceSpec extends ObjectBehavior
     public function it_should__use_shopwares_cookie_handler_to_check_for_consent_if_there_are_cookie_preferences(
         CookieHandlerInterface $cookieHandler
     ): void {
-        $cookieHandler->isCookieAllowedByPreferences(TrackingConsentServiceInterface::COOKIE_NAME, [])
+        $cookieHandler->isCookieAllowedByPreferences(TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME, [])
             ->willReturn(true);
 
         $this->enableTracking('{}')

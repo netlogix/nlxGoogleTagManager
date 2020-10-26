@@ -3,13 +3,15 @@
 {block name="frontend_index_header_javascript_tracking"}
     {$smarty.block.parent}
 
-    <script>
+    <script id="nlx-tag-manager-data">
         window.nlxGoogleTagManagerTrackingActive = {$nlxGoogleTagManagerTrackingActive};
-        var dataLayer = dataLayer || [];
-
+        window.nlxGoogleTagManagerTrackingId = '{$nlxGoogleTagManagerTrackingId}';
+        window.nlxGoogleTagManagerAnalyticsCookieName = '{$nlxGoogleTagManagerAnalyticsCookieName}';
         window.nlxGTMSnippets = {
             'googleAnalyticsOptoutSuccess': '{s namespace="frontend/plugins/nlxGoogleTagManager" name="GoogleAnalyticsOptoutSuccess"}{/s}'
         };
+
+        var dataLayer = dataLayer || [];
     </script>
 
     <script>

@@ -43,4 +43,8 @@
         <changes lang="de">Lade den Google Tag Manager nachdem der Cookie Hinweis akzeptiert wurde</changes>
         <changes lang="en">Load the Google Tag Manager after the cookie notice has been accepted</changes>
     </changelog>
+    <changelog version="3.2.0">
+        <changes lang="de">LMöglichkeit hinzugefügt, Tag Manager als technisch notwendig anzuzeigen und Analytics seperat an-/abzuwählen</changes>
+        <changes lang="en">Added the option of declaring the Tag Manager as technically required and select/deselect Analytics separately</changes>
+    </changelog>
 </plugin>

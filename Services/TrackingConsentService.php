@@ -32,6 +32,6 @@ class TrackingConsentService implements TrackingConsentServiceInterface
             return false;
         }
 
-        return $this->cookieHandler->isCookieAllowedByPreferences(self::COOKIE_NAME, $parsedCookiePreferences);
+        return $this->cookieHandler->isCookieAllowedByPreferences(self::TAG_MANAGER_COOKIE_NAME, $parsedCookiePreferences);
     }
 }

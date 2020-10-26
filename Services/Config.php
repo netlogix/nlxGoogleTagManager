@@ -75,10 +75,10 @@ class Config implements ConfigInterface
     }
 
     /**
-     * Returns the name of the google tag manager plugin for the shopware consent manager
+     * Checks if the tag manager is necessary to operate the shop
      */
-    public function getConsentManagerName(): string
+    public function getIsTagManagerTechnicallyRequired(): bool
     {
-        return $this->get('nlxGoogleTagManagerConsentManagerName');
+        return $this->get('nlxGoogleTagManagerIsTagManagerTechnicallyRequired');
     }
 }
