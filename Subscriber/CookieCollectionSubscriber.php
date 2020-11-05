@@ -22,9 +22,13 @@ class CookieCollectionSubscriber implements SubscriberInterface
     /** @var Config */
     private $config;
 
-    public function __construct(Config $config)
+    /** @var \Enlight_Components_Snippet_Namespace */
+    private $snippets;
+
+    public function __construct(Config $config, \Enlight_Components_Snippet_Manager $snippetService)
     {
         $this->config = $config;
+        $this->snippets = $snippetService->getNamespace('frontend/plugins/nlxGoogleTagManager');
     }
 
     /**
@@ -42,12 +46,23 @@ class CookieCollectionSubscriber implements SubscriberInterface
         $cookies = new CookieCollection();
 
         if ($this->config->useCookieConsentManager()) {
+            $isTagManagerRequired = $this->config->getIsTagManagerTechnicallyRequired();
+
             $cookies->add(new CookieStruct(
-                TrackingConsentServiceInterface::COOKIE_NAME,
-                '/' . TrackingConsentService::COOKIE_NAME . '/',
-                $this->config->getConsentManagerName(),
-                CookieGroupStruct::STATISTICS
+                TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
+                '/' . TrackingConsentService::TAG_MANAGER_COOKIE_NAME . '/',
+                $this->snippets->get('GoogleTagManager'),
+                $isTagManagerRequired ? CookieGroupStruct::TECHNICAL : CookieGroupStruct::STATISTICS
             ));
+
+            if ($isTagManagerRequired) {
+                $cookies->add(new CookieStruct(
+                    TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME,
+                    '/' . TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME . '/',
+                    $this->snippets->get('GoogleAnalytics'),
+                    CookieGroupStruct::STATISTICS
+                ));
+            }
         }
 
         return $cookies;

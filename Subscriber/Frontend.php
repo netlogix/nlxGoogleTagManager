@@ -43,7 +43,7 @@ class Frontend implements SubscriberInterface
         $view = $args->getSubject()->View();
 
         $enableTracking = 1;
-        if ($this->config->useCookieConsentManager()) {
+        if ($this->config->useCookieConsentManager() && false === $this->config->getIsTagManagerTechnicallyRequired()) {
             $cookiePreferences = $args->getRequest()->getCookie(CookieHandler::PREFERENCES_COOKIE_NAME);
             $enableTracking = (int) $this->trackingConsentService->enableTracking($cookiePreferences);
         }
@@ -52,6 +52,7 @@ class Frontend implements SubscriberInterface
             'nlxGoogleTagManagerTrackingActive' => $enableTracking,
             'nlxGoogleTagManagerTrackingId' => $this->config->getGoogleTagManagerTrackingId(),
             'nlxGoogleTagManagerRemarketingEnabled' => $this->config->isRemarketingEnabled(),
+            'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME,
         ]);
     }
 }

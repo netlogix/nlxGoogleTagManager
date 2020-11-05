@@ -20,11 +20,11 @@
             <label lang="en">Use Shopware cookie consent manager?</label>
             <value>false</value>
         </element>
-        <element type="text" scope="shop">
-            <name>nlxGoogleTagManagerConsentManagerName</name>
-            <label lang="de">Name im Shopware Consent Manager</label>
-            <label lang="en">Google tag manager consent manager name</label>
-            <value>Google Tag Manager</value>
+        <element type="boolean" scope="shop">
+            <name>nlxGoogleTagManagerIsTagManagerRequired</name>
+            <label lang="de">Wird der Google Tag Manager aus technischer Sicht benötigt</label>
+            <label lang="en">Is Google Tag Manager required from a technical viewpoint?</label>
+            <value>false</value>
         </element>
     </elements>
 </config>

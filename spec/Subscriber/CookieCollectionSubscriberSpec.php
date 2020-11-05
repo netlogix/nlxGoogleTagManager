@@ -19,14 +19,21 @@ use Shopware\Bundle\CookieBundle\CookieCollection;
 
 class CookieCollectionSubscriberSpec extends ObjectBehavior
 {
-    const COOKIE_LABEL = 'Google Tag Manager';
+    public function let(
+        Config $config,
+        \Enlight_Components_Snippet_Manager $snippetService,
+        \Enlight_Components_Snippet_Namespace $snippets
+    ): void {
+        $snippetService->getNamespace('frontend/plugins/nlxGoogleTagManager')
+            ->willReturn($snippets);
 
-    public function let(Config $config): void
-    {
-        $config->getConsentManagerName()
-            ->willReturn(self::COOKIE_LABEL);
+        $snippets->get('GoogleTagManager')
+            ->willReturn('GoogleTagManager');
 
-        $this->beConstructedWith($config);
+        $snippets->get('GoogleAnalytics')
+            ->willReturn('GoogleAnalytics');
+
+        $this->beConstructedWith($config, $snippetService);
     }
 
     public function it_should_be_initializable(): void
@@ -45,12 +52,40 @@ class CookieCollectionSubscriberSpec extends ObjectBehavior
         $config->useCookieConsentManager()
             ->willReturn(true);
 
-        $this->addCookies()
-            ->hasCookieWithName(TrackingConsentServiceInterface::COOKIE_NAME)
-            ->shouldReturn(true);
+        $config->getIsTagManagerTechnicallyRequired()
+            ->willReturn(false);
+
+        $cookies = $this->addCookies();
+
+        $cookies->getCookieByName('nlxGoogleTagManager')
+            ->getLabel()
+            ->shouldReturn('GoogleTagManager');
+
+        $cookies->hasCookieWithName('nlxGoogleAnalytics')
+            ->shouldReturn(false);
     }
 
-    public function it_should_not_add_the_googleTagManager_cookie_if_the_plugin_is_not_using_the_cookie_consent_manager(
+    public function it_should_add_the_google_analytics_cookie_if_the_plugin_uses_the_cookie_consent_manager_and_the_tag_manager_is_required(
+        Config $config
+    ): void {
+        $config->useCookieConsentManager()
+            ->willReturn(true);
+
+        $config->getIsTagManagerTechnicallyRequired()
+            ->willReturn(true);
+
+        $cookies = $this->addCookies();
+
+        $cookies->getCookieByName('nlxGoogleTagManager')
+            ->getLabel()
+            ->shouldReturn('GoogleTagManager');
+
+        $cookies->getCookieByName('nlxGoogleAnalytics')
+            ->getLabel()
+            ->shouldReturn('GoogleAnalytics');
+    }
+
+    public function it_should_not_add_cookies_if_the_plugin_is_not_using_the_cookie_consent_manager(
         Config $config
     ): void {
         $config->useCookieConsentManager()
@@ -58,36 +93,5 @@ class CookieCollectionSubscriberSpec extends ObjectBehavior
 
         $this->addCookies()
             ->shouldBeLike(new CookieCollection());
-    }
-
-    public function it_should_use_the_default_label_if_not_specified_in_the_plugin_configuration(
-        Config $config
-    ): void {
-        $config->useCookieConsentManager()
-            ->willReturn(true);
-
-        $result = $this->addCookies();
-
-        $result->getCookieByName(TrackingConsentService::COOKIE_NAME)
-            ->getLabel()
-            ->shouldEqual(self::COOKIE_LABEL);
-    }
-
-    public function it_should_use_the_users_label_if_specified_in_the_plugin_configuration(
-        Config $config
-    ): void {
-        $consentManagerName = 'Some Other Service';
-
-        $config->useCookieConsentManager()
-            ->willReturn(true);
-
-        $config->getConsentManagerName()
-            ->willReturn($consentManagerName);
-
-        $result = $this->addCookies();
-
-        $result->getCookieByName(TrackingConsentService::COOKIE_NAME)
-            ->getLabel()
-            ->shouldEqual($consentManagerName);
     }
 }

@@ -69,12 +69,13 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
 
         $this->onFrontendPostDispatch($args);
     }
 
-    public function it_should_not_enable_tracking_if_the_traking_consent_service_doesnt_allow_it(
+    public function it_should_not_enable_tracking_if_the_tracking_consent_service_doesnt_allow_it(
         Config $config,
         \Enlight_Controller_ActionEventArgs $args,
         \Enlight_View_Default $view,
@@ -83,6 +84,9 @@ class FrontendSpec extends ObjectBehavior
     ): void {
         $config->useCookieConsentManager()
             ->willReturn(true);
+
+        $config->getIsTagManagerTechnicallyRequired()
+            ->willReturn(false);
 
         $request->getCookie(CookieHandler::PREFERENCES_COOKIE_NAME)
             ->willReturn('');
@@ -94,6 +98,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleTagManagerTrackingActive' => 0,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
 
         $this->onFrontendPostDispatch($args);
@@ -119,6 +124,36 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
+        ])->shouldBeCalled();
+
+        $this->onFrontendPostDispatch($args);
+    }
+
+    public function it_should_not_call_the_tracking_consent_service_if_the_tag_manager_is_required(
+        Config $config,
+        \Enlight_Controller_ActionEventArgs $args,
+        \Enlight_View_Default $view,
+        \Enlight_Controller_Request_Request $request,
+        TrackingConsentServiceInterface $trackingConsentService
+    ): void {
+        $config->useCookieConsentManager()
+            ->willReturn(true);
+
+        $config->getIsTagManagerTechnicallyRequired()
+            ->willReturn(true);
+
+        $request->getCookie(CookieHandler::PREFERENCES_COOKIE_NAME)
+            ->shouldNotBeCalled();
+
+        $trackingConsentService->enableTracking('')
+            ->shouldNotBeCalled();
+
+        $view->assign([
+            'nlxGoogleTagManagerTrackingActive' => 1,
+            'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
 
         $this->onFrontendPostDispatch($args);

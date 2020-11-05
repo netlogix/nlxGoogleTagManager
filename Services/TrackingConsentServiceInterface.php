@@ -11,7 +11,8 @@ namespace nlxGoogleTagManager\Services;
 
 interface TrackingConsentServiceInterface
 {
-    public const COOKIE_NAME = 'nlxGoogleTagManager';
+    public const TAG_MANAGER_COOKIE_NAME = 'nlxGoogleTagManager';
+    public const ANALYTICS_COOKIE_NAME = 'nlxGoogleAnalytics';
 
     public function enableTracking(?string $cookiePreferences): bool;
 }

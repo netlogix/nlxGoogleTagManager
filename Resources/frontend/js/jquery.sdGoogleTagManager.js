@@ -59,6 +59,14 @@
                         'value': isShippable
                     });
                 });
+
+                $(document).ready(function () {
+                    me.blockAnalyticsIfNotAllowed();
+                });
+
+                $.subscribe('plugin/swCookieConsentManager/onBuildCookiePreferences', function () {
+                    me.blockAnalyticsIfNotAllowed();
+                });
             }
         },
 
@@ -182,6 +190,17 @@
                 Cookies.set(`ga-disable-${id}`, true, { expires: new Date(3000, 1, 1) });
             }
             alert(window.nlxGTMSnippets.googleAnalyticsOptoutSuccess);
+        },
+
+        setAnalyticsOptoutFlag: function (optout) {
+            window['ga-disable-' + window.nlxGoogleTagManagerTrackingId] = optout;
+        },
+
+        blockAnalyticsIfNotAllowed: function () {
+            const analyticsAllowed = $.getCookiePreference(window.nlxGoogleTagManagerAnalyticsCookieName);
+            if (!analyticsAllowed) {
+                this.setAnalyticsOptoutFlag(true);
+            }
         }
     });
 
