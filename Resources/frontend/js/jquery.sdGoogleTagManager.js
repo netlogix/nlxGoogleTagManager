@@ -198,9 +198,7 @@
 
         blockAnalyticsIfNotAllowed: function () {
             const analyticsAllowed = $.getCookiePreference(window.nlxGoogleTagManagerAnalyticsCookieName);
-            if (!analyticsAllowed) {
-                this.setAnalyticsOptoutFlag(true);
-            }
+            this.setAnalyticsOptoutFlag(!analyticsAllowed);
         }
     });
 
