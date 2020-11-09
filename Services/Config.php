@@ -79,6 +79,6 @@ class Config implements ConfigInterface
      */
     public function getIsTagManagerTechnicallyRequired(): bool
     {
-        return $this->get('nlxGoogleTagManagerIsTagManagerTechnicallyRequired');
+        return $this->get('nlxGoogleTagManagerIsTagManagerRequired');
     }
 }
