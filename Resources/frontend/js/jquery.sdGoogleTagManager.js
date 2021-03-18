@@ -186,9 +186,7 @@
         },
 
         googleAnalyticsOptout: function () {
-            for (var id of Object.keys(window.gaData)) {
-                Cookies.set(`ga-disable-${id}`, true, { expires: new Date(3000, 1, 1) });
-            }
+            Cookies.set(`ga-disable-` + window.nlxGoogleTagManagerTrackingId, true, { expires: new Date(3000, 1, 1) });
             alert(window.nlxGTMSnippets.googleAnalyticsOptoutSuccess);
         },
 
