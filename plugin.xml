@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>3.1.0</version>
+    <version>3.2.1</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -46,5 +46,9 @@
     <changelog version="3.2.0">
         <changes lang="de">Möglichkeit hinzugefügt, Tag Manager als technisch notwendig anzuzeigen und Analytics seperat an-/abzuwählen</changes>
         <changes lang="en">Added the option of declaring the Tag Manager as technically required and select/deselect Analytics separately</changes>
+    </changelog>
+    <changelog version="3.2.1">
+        <changes lang="de">Bugfix: Die Variable 'gaData' mit 'nlxGoogleTagManagerTrackingId' austauschen, weil `gaData` nicht existiert</changes>
+        <changes lang="en">Bugfix: Replace the varable 'gaData' with 'nlxGoogleTagManagerTrackingId' because 'gaData' not exist</changes>
     </changelog>
 </plugin>
