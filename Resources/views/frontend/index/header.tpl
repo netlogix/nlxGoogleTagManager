@@ -6,6 +6,7 @@
     <script id="nlx-tag-manager-data">
         window.nlxGoogleTagManagerTrackingActive = {$nlxGoogleTagManagerTrackingActive};
         window.nlxGoogleTagManagerTrackingId = '{$nlxGoogleTagManagerTrackingId}';
+        window.nlxGoogleAnalytics4MeasurementId = '{$nlxGoogleAnalytics4MeasurementId}';
         window.nlxGoogleTagManagerAnalyticsCookieName = '{$nlxGoogleTagManagerAnalyticsCookieName}';
         window.nlxGTMSnippets = {
             'googleAnalyticsOptoutSuccess': '{s namespace="frontend/plugins/nlxGoogleTagManager" name="GoogleAnalyticsOptoutSuccess"}{/s}'

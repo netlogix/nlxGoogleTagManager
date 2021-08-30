@@ -58,6 +58,11 @@ class Config implements ConfigInterface
         return $this->get('nlxGoogleTagManagerTrackingId');
     }
 
+    public function getGoogleAnalytics4MeasurementTrackingId(): ?string
+    {
+        return $this->get('nlxGoogleAnalytics4MeasurementId');
+    }
+
     /**
      * Checks if remarketing is enabled in config
      */
