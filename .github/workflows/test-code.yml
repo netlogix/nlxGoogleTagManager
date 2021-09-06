@@ -1,0 +1,53 @@
+name: test-code
+
+on: [ push, pull_request ]
+
+jobs:
+    test-code:
+        name: '[PHP ${{ matrix.php-version }} | Shopware ${{ matrix.shopware-version }}] Tests'
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php-version: [ 7.2, 7.3, 7.4 ]
+                shopware-version: [ \~5.6, \~5.7 ]
+                exclude:
+                    - php-version: [7.2, 7.3]
+                      shopware-version: \~5.7
+
+        env:
+            SHOPWARE_VERSION: ${{ matrix.shopware-version }}
+
+        steps:
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  tools: composer:v1
+
+            - uses: actions/checkout@v2
+              with:
+                  clean: false
+
+            - name: Cache composer
+              uses: actions/cache@v2
+              with:
+                  path: ~/vendor/
+                  key: php-${{ matrix.php-version }}-shopware-${{ matrix.shopware-version }}-composer-${{ hashFiles('composer.json') }}
+                  restore-keys: |
+                      php-${{ matrix.php-version }}-shopware-${{ matrix.shopware-version }}-composer-
+                      php-${{ matrix.php-version }}-shopware-
+            - name: Prepare composer
+              run: ./etc/scripts/prepareComposerJson.sh
+
+            - name: Composer install
+              run: composer install -n --no-progress
+
+            - name: Check coding standards
+              run: ./etc/scripts/checkCodingStandards.sh
+
+            - name: Check plugin structure
+              run: ./etc/scripts/checkForCorrectPluginStructure.sh
+
+            - name: Run phpspec
+              run: vendor/bin/phpspec-standalone.php${{ matrix.php-version }}.phar run --no-code-generation --format=dot
