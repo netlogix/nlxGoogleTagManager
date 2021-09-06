@@ -8,6 +8,12 @@
             <label lang="en">Google tag manager tracking id</label>
             <value>GTM-XXXX</value>
         </element>
+        <element type="text" scope="shop">
+            <name>nlxGoogleAnalytics4MeasurementId</name>
+            <label lang="de">Google Analytics measurement id</label>
+            <label lang="en">Google Analytics measurement id</label>
+            <value>G-XXXX</value>
+        </element>
         <element type="boolean" scope="shop">
             <name>nlxGoogleTagManagerRemarketingEnabled</name>
             <label lang="de">Remarketing Parameter einbinden?</label>

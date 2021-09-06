@@ -2,18 +2,14 @@
     $.plugin('nlxGoogleTagManager', {
         defaults: {
             'productClickSelector': '*[data-gtm-productClick="true"]',
-
             'removeFromCartClickSelector': '*[data-gtm-removeFromCartClick="true"]',
-
             'addVoucherClickSelector': '#add-voucher--trigger',
-
             'billingShippingClickSelector': '#register_billing_shippingAddress',
-
             'googleClickTriggered': false,
-
             'resetDocumentLocation': true,
-
-            'googleAnalyticsOptoutLinkSelector': '*[data-ga-optout="true"]'
+            'googleAnalyticsOptoutLinkSelector': '*[data-ga-optout="true"]',
+            'disableGoogleTagManager': `ga-disable-` + window.nlxGoogleTagManagerTrackingId,
+            'disableAnalytics4': `ga-disable-` + window.nlxGoogleAnalytics4MeasurementId,
         },
 
         init: function () {
@@ -186,17 +182,32 @@
         },
 
         googleAnalyticsOptout: function () {
-            Cookies.set(`ga-disable-` + window.nlxGoogleTagManagerTrackingId, true, { expires: new Date(3000, 1, 1) });
+            Cookies.set(this.opts.disableGoogleTagManager, true, { expires: new Date(3000, 1, 1) });
+            Cookies.set(this.opts.disableAnalytics4, true, { expires: new Date(3000, 1, 1) });
             alert(window.nlxGTMSnippets.googleAnalyticsOptoutSuccess);
         },
 
-        setAnalyticsOptoutFlag: function (optout) {
-            window['ga-disable-' + window.nlxGoogleTagManagerTrackingId] = optout;
+        setAnalyticsOptoutFlag: function (analyticsAllowed) {
+            window[this.opts.disableGoogleTagManager] = false;
+            window[this.opts.disableAnalytics4] = false;
+
+            if (true === Cookies.get(this.opts.disableGoogleTagManager)) {
+                window[this.opts.disableGoogleTagManager] = true;
+            }
+
+            if (true === Cookies.get(this.opts.disableAnalytics4)) {
+                window[this.opts.disableAnalytics4] = true;
+            }
+
+            if (false === analyticsAllowed) {
+                window[this.opts.disableGoogleTagManager] = true;
+                window[this.opts.disableAnalytics4] = true;
+            }
         },
 
         blockAnalyticsIfNotAllowed: function () {
             const analyticsAllowed = $.getCookiePreference(window.nlxGoogleTagManagerAnalyticsCookieName);
-            this.setAnalyticsOptoutFlag(!analyticsAllowed);
+            this.setAnalyticsOptoutFlag(analyticsAllowed);
         }
     });
 

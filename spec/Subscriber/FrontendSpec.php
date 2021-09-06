@@ -29,6 +29,9 @@ class FrontendSpec extends ObjectBehavior
         $config->getGoogleTagManagerTrackingId()
             ->willReturn('GTM-123');
 
+        $config->getGoogleAnalytics4MeasurementTrackingId()
+            ->willReturn('G-1234');
+
         $config->isRemarketingEnabled()
             ->willReturn(true);
 
@@ -68,6 +71,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
@@ -97,6 +101,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 0,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
@@ -123,6 +128,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
@@ -152,6 +158,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();

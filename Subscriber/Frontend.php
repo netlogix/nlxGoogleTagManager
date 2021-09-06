@@ -51,6 +51,7 @@ class Frontend implements SubscriberInterface
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => $enableTracking,
             'nlxGoogleTagManagerTrackingId' => $this->config->getGoogleTagManagerTrackingId(),
+            'nlxGoogleAnalytics4MeasurementId' => $this->config->getGoogleAnalytics4MeasurementTrackingId(),
             'nlxGoogleTagManagerRemarketingEnabled' => $this->config->isRemarketingEnabled(),
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME,
         ]);
