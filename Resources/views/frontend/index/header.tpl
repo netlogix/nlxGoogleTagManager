@@ -6,6 +6,7 @@
     <script id="nlx-tag-manager-data">
         window.nlxGoogleTagManagerTrackingActive = {$nlxGoogleTagManagerTrackingActive};
         window.nlxGoogleTagManagerTrackingId = '{$nlxGoogleTagManagerTrackingId}';
+        window.nlxGoogleAnalyticsMeasurementId = '{$nlxGoogleAnalyticsMeasurementId}';
         window.nlxGoogleAnalytics4MeasurementId = '{$nlxGoogleAnalytics4MeasurementId}';
         window.nlxGoogleTagManagerAnalyticsCookieName = '{$nlxGoogleTagManagerAnalyticsCookieName}';
         window.nlxGTMSnippets = {
