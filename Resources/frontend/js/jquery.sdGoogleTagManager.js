@@ -73,7 +73,7 @@
             var me = this;
 
             me._on(me.opts.googleAnalyticsOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
-            me._on(me.opts.googleTagManagerOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
+            me._on(me.opts.googleTagManagerOptoutLinkSelector, 'click', $.proxy(me.googleTagManagerOptout, me));
         },
 
         _onProductClick: function (e) {
@@ -204,10 +204,15 @@
 
         setAnalyticsOptoutFlag: function (analyticsAllowed) {
             window[this.opts.disableGoogleTagManager] = false;
+            window[this.opts.disableAnalytics] = false;
             window[this.opts.disableAnalytics4] = false;
 
             if (true === Cookies.get(this.opts.disableGoogleTagManager)) {
                 window[this.opts.disableGoogleTagManager] = true;
+            }
+
+            if (true === Cookies.get(this.opts.disableAnalytics)) {
+                window[this.opts.disableAnalytics] = true;
             }
 
             if (true === Cookies.get(this.opts.disableAnalytics4)) {
@@ -216,6 +221,7 @@
 
             if (false === analyticsAllowed) {
                 window[this.opts.disableGoogleTagManager] = true;
+                window[this.opts.disableAnalytics] = true;
                 window[this.opts.disableAnalytics4] = true;
             }
         },
