@@ -9,9 +9,15 @@
             <value>GTM-XXXX</value>
         </element>
         <element type="text" scope="shop">
-            <name>nlxGoogleAnalytics4MeasurementId</name>
+            <name>nlxGoogleAnalyticsMeasurementId</name>
             <label lang="de">Google Analytics measurement id</label>
             <label lang="en">Google Analytics measurement id</label>
+            <value>UA-XXXXXXXX-Y</value>
+        </element>
+        <element type="text" scope="shop">
+            <name>nlxGoogleAnalytics4MeasurementId</name>
+            <label lang="de">Google Analytics 4 measurement id</label>
+            <label lang="en">Google Analytics 4 measurement id</label>
             <value>G-XXXX</value>
         </element>
         <element type="boolean" scope="shop">

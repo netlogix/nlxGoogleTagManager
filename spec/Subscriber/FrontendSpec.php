@@ -29,6 +29,9 @@ class FrontendSpec extends ObjectBehavior
         $config->getGoogleTagManagerTrackingId()
             ->willReturn('GTM-123');
 
+        $config->getGoogleAnalyticsMeasurementTrackingId()
+            ->willReturn('UA-123345678-1');
+
         $config->getGoogleAnalytics4MeasurementTrackingId()
             ->willReturn('G-1234');
 
@@ -71,6 +74,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
@@ -101,6 +105,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 0,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
@@ -128,6 +133,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
@@ -158,6 +164,7 @@ class FrontendSpec extends ObjectBehavior
         $view->assign([
             'nlxGoogleTagManagerTrackingActive' => 1,
             'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME

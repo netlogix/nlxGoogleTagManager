@@ -7,15 +7,18 @@
             'billingShippingClickSelector': '#register_billing_shippingAddress',
             'googleClickTriggered': false,
             'resetDocumentLocation': true,
+            'googleTagManagerOptoutLinkSelector': '*[data-gtm-optout="true"]',
             'googleAnalyticsOptoutLinkSelector': '*[data-ga-optout="true"]',
             'disableGoogleTagManager': `ga-disable-` + window.nlxGoogleTagManagerTrackingId,
+            'disableAnalytics': `ga-disable-` + window.nlxGoogleAnalyticsMeasurementId,
             'disableAnalytics4': `ga-disable-` + window.nlxGoogleAnalytics4MeasurementId,
         },
 
         init: function () {
             var me = this;
 
-            me._on(me.opts.googleAnalyticsOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
+            me.registerEvents();
+
             if (window.nlxGoogleTagManagerTrackingActive) {
                 me.applyDataAttributes();
 
@@ -64,6 +67,13 @@
                     me.blockAnalyticsIfNotAllowed();
                 });
             }
+        },
+
+        registerEvents: function () {
+            var me = this;
+
+            me._on(me.opts.googleAnalyticsOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
+            me._on(me.opts.googleTagManagerOptoutLinkSelector, 'click', $.proxy(me.googleAnalyticsOptout, me));
         },
 
         _onProductClick: function (e) {
@@ -181,8 +191,13 @@
             });
         },
 
-        googleAnalyticsOptout: function () {
+        googleTagManagerOptout: function () {
             Cookies.set(this.opts.disableGoogleTagManager, true, { expires: new Date(3000, 1, 1) });
+            alert(window.nlxGTMSnippets.googleAnalyticsOptoutSuccess);
+        },
+
+        googleAnalyticsOptout: function () {
+            Cookies.set(this.opts.disableAnalytics, true, { expires: new Date(3000, 1, 1) });
             Cookies.set(this.opts.disableAnalytics4, true, { expires: new Date(3000, 1, 1) });
             alert(window.nlxGTMSnippets.googleAnalyticsOptoutSuccess);
         },
