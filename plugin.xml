@@ -59,4 +59,8 @@
         <changes lang="de">Opt out für google analytics 3 hinzufügen</changes>
         <changes lang="en">Add opt out for google analytics 3</changes>
     </changelog>
+    <changelog version="3.4.1">
+        <changes lang="de">Opt out Flag für google analytics 3 setzen</changes>
+        <changes lang="en">Set opt out flag for google analytics 3</changes>
+    </changelog>
 </plugin>
