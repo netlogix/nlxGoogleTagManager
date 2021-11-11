@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>3.4.0</version>
+    <version>4.0.0</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -62,5 +62,9 @@
     <changelog version="3.4.1">
         <changes lang="de">Opt out Flag für google analytics 3 setzen</changes>
         <changes lang="en">Set opt out flag for google analytics 3</changes>
+    </changelog>
+    <changelog version="4.0.0">
+        <changes lang="de">Shopware 5.7.x Support</changes>
+        <changes lang="en">Shopware 5.7.x support</changes>
     </changelog>
 </plugin>
