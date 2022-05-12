@@ -1,18 +1,17 @@
 {if $sArticle and $nlxGoogleTagManagerTrackingActive}
     <script>
         dataLayer.push({literal}{
-            'event': "addToCart",
+            'event': "add_to_cart",
             'ecommerce': {
-                'currencyCode': "EUR",
-                'add': {
-                    'products': [{
-                        'name': "{/literal}{$sArticle.articlename}{literal}",
-                        'id': "{/literal}{$sArticle.ordernumber}{literal}",
-                        'price': "{/literal}{$sArticle.price}{literal}",
-                        'brand': "{/literal}{$sArticle.additional_details.supplierName}{literal}",
-                        'quantity': "{/literal}{$sArticle.quantity}{literal}"
-                    }]
-                }
+                'currency': "EUR",
+                'value': '{/literal}{$sArticle.price}{literal}'
+                'items': [{
+                    'item_name': "{/literal}{$sArticle.articlename}{literal}",
+                    'item_id': "{/literal}{$sArticle.ordernumber}{literal}",
+                    'price': "{/literal}{$sArticle.price}{literal}",
+                    'item_brand': "{/literal}{$sArticle.additional_details.supplierName}{literal}",
+                    'quantity': "{/literal}{$sArticle.quantity}{literal}"
+                }]
             }
         }{/literal});
 

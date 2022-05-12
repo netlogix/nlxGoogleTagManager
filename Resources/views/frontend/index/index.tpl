@@ -9,11 +9,11 @@
                         {foreach $sBasket.content as $sBasketItem}
                         {literal}
                         {
-                            'name': '{/literal}{$sBasketItem.articlename}{literal}',
-                            'id': '{/literal}{$sBasketItem.ordernumber}{literal}',
+                            'item_name': '{/literal}{$sBasketItem.articlename}{literal}',
+                            'item_id': '{/literal}{$sBasketItem.ordernumber}{literal}',
                             'price': '{/literal}{$sBasketItem.price}{literal}',
-                            'brand': '{/literal}{$sBasketItem.additional_details.supplierName}{literal}',
-                            'category': '{/literal}{$zip}{literal}',
+                            'item_brand': '{/literal}{$sBasketItem.additional_details.supplierName}{literal}',
+                            'item_category': '{/literal}{$zip}{literal}',
                             'quantity': {/literal}{$sBasketItem.quantity}{literal}
                         },
                         {/literal}

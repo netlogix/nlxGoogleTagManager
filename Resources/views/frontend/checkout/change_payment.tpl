@@ -6,14 +6,9 @@
         {if $sUserData.additional.payment.id == $payment_mean.id}
             <script>
                 dataLayer.push({literal}{
-                    'event': 'checkoutOption',
+                    'event': 'add_payment_info',
                     "ecommerce": {
-                        'checkout_option': {
-                            'actionField': {
-                                'step': 3,
-                                'option': '{/literal}{$payment_mean.description}{literal}'
-                            }
-                        }
+                        'payment_type': '{/literal}{$payment_mean.description}{literal}'
                     }
                 }{/literal});
             </script>
