@@ -6,14 +6,9 @@
         {if $sDispatch.id == $dispatch.id}
             <script>
                 dataLayer.push({literal}{
-                    'event': 'checkoutOption',
+                    'event': 'add_shipping_info',
                     "ecommerce": {
-                        'checkout_option': {
-                            'actionField': {
-                                'step': 2,
-                                'option': '{/literal}{$dispatch.name}{literal}'
-                            }
-                        }
+                        'shipping_tier': '{/literal}{$dispatch.name}{literal}'
                     }
                 }{/literal});
             </script>

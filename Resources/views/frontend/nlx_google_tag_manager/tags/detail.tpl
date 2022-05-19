@@ -2,16 +2,13 @@
     <script>
         dataLayer.push({literal}{
             'ecommerce': {
-                'detail': {
-                    'actionField': {
-                        'list': "{/literal}{$sCategoryInfo.name}{literal}"
-                    },
-                    'products': [{
-                        'id': "{/literal}{$sArticle.ordernumber}{literal}",
-                        'name': "{/literal}{$sArticle.articleName}{literal}",
+                'View_item': {
+                    'items': [{
+                        'item_id': "{/literal}{$sArticle.ordernumber}{literal}",
+                        'item_name': "{/literal}{$sArticle.articleName}{literal}",
                         'price': "{/literal}{$sArticle.price}{literal}",
-                        'brand': "{/literal}{$sArticle.supplierName}{literal}",
-                        'category': "{/literal}{$sCategoryInfo.name}{literal}"
+                        'item_brand': "{/literal}{$sArticle.supplierName}{literal}",
+                        'item_category': "{/literal}{$sCategoryInfo.name}{literal}"
                     }]
                 }
             },

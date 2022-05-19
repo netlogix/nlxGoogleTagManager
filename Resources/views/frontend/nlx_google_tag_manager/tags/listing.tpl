@@ -2,19 +2,18 @@
     <script>
         dataLayer.push({literal}{
             'ecommerce': {
-                'currencyCode': 'EUR',
-                'impressions': [
+                'currency': 'EUR',
+                'item_list_name': '{/literal}{$sCategoryContent.name}{literal}',
+                'view_item_list': [
                     {/literal}
                     {counter print=false start=$pageArticleCounterStart assign=articlePosition}
                     {foreach $sArticles as $sArticle}
                     {literal}
                     {
-                        'name': "{/literal}{$sArticle.articleName}{literal}",
-                        'id': "{/literal}{$sArticle.ordernumber}{literal}",
+                        'item_name': "{/literal}{$sArticle.articleName}{literal}",
+                        'item_id': "{/literal}{$sArticle.ordernumber}{literal}",
                         'price': "{/literal}{$sArticle.price}{literal}",
-                        'brand': "{/literal}{$sArticle.supplierName}{literal}",
-                        'list': 'Category',
-                        'category': "{/literal}{$sCategoryContent.name}{literal}",
+                        'item_brand': "{/literal}{$sArticle.supplierName}{literal}",
                         'position': {/literal}{$articlePosition}{literal}
                     },
                     {/literal}
