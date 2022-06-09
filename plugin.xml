@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>4.0.0</version>
+    <version>5.0.0</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -66,5 +66,9 @@
     <changelog version="4.0.0">
         <changes lang="de">Shopware 5.7.x Support</changes>
         <changes lang="en">Shopware 5.7.x support</changes>
+    </changelog>
+    <changelog version="5.0.0">
+        <changes lang="de">Google UA4 Unterstützung hinzugefügt</changes>
+        <changes lang="en">Add Google UA4 Support</changes>
     </changelog>
 </plugin>
