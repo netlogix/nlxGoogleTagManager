@@ -9,6 +9,13 @@
     <link>https://websolutions.netlogix.de/</link>
     <author>netlogix GmbH &amp; Co. KG</author>
 
+    <description lang="de">
+        Plugin, um Google Tag Manager Funktionalität zu implementieren
+    </description>
+    <description lang="en">
+        Plugin to implement Google Tag Manager functionality
+    </description>
+
     <compatibility minVersion="5.6" />
 
     <changelog version="1.0.0">
@@ -70,5 +77,9 @@
     <changelog version="5.0.0">
         <changes lang="de">Google UA4 Unterstützung hinzugefügt</changes>
         <changes lang="en">Add Google UA4 Support</changes>
+    </changelog>
+    <changelog version="5.1.0">
+        <changes lang="de">Plugin Beschreibung hinzugefügt</changes>
+        <changes lang="en">Added plugin description</changes>
     </changelog>
 </plugin>
