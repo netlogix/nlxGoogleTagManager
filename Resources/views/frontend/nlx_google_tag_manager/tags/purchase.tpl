@@ -11,7 +11,7 @@
                 {/literal}
                 {if $sBasket.content}
                     {literal}
-                    'items': [
+                    ,'items': [
                         {/literal}
                         {foreach $sBasket.content as $sBasketItem}
                         {literal}
