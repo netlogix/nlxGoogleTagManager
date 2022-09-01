@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>5.1.0</version>
+    <version>5.1.1</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -81,5 +81,9 @@
     <changelog version="5.1.0">
         <changes lang="de">Plugin Beschreibung hinzugefügt</changes>
         <changes lang="en">Added plugin description</changes>
+    </changelog>
+    <changelog version="5.1.1">
+        <changes lang="de">Fehler beim tracken des Checkouts behoben</changes>
+        <changes lang="en">Fixed error that occurred during checkout</changes>
     </changelog>
 </plugin>
