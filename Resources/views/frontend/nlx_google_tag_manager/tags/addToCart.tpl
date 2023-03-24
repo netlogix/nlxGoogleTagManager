@@ -4,7 +4,7 @@
             'event': "add_to_cart",
             'ecommerce': {
                 'currency': "EUR",
-                'value': '{/literal}{$sArticle.price}{literal}'
+                'value': '{/literal}{$sArticle.price}{literal}',
                 'items': [{
                     'item_name': "{/literal}{$sArticle.articlename}{literal}",
                     'item_id': "{/literal}{$sArticle.ordernumber}{literal}",
