@@ -3,6 +3,7 @@
         dataLayer.push({literal}{
             'event': 'purchase',
             'ecommerce': {
+                'currency': 'EUR',
                 'transaction_id': "{/literal}{$sOrderNumber}{literal}",
                 'affiliation': "{/literal}{$sShopname}{literal}",
                 'value': "{/literal}{$sBasket.sAmount}{literal}",
