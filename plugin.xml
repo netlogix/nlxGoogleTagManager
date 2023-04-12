@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>5.1.3</version>
+    <version>5.1.4</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -93,5 +93,9 @@
     <changelog version="5.1.3">
         <changes lang="de">Block checkout_ajax_add_to_cart_event für benutzerdefinierte Verwendung hinzugefügt</changes>
         <changes lang="en">Add checkout_ajax_add_to_cart_event block for custom use</changes>
+    </changelog>
+    <changelog version="5.1.4">
+        <changes lang="de">Beachte mehrere Akzeptier-Möglichkeiten im Cookie Consent um den Google Tag Manager nachzuladen</changes>
+        <changes lang="en">Observe several acceptance buttons in Cookie Consent to load the Google Tag Manager</changes>
     </changelog>
 </plugin>

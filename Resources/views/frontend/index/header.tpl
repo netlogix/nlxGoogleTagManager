@@ -40,9 +40,22 @@
     {else}
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                document.getElementsByClassName('cookie-permission--accept-button')[0].addEventListener('click', function () {
-                    googleTagManager();
-                });
+                let cookiePermissionAcceptButton = document.getElementsByClassName('cookie-permission--accept-button')[0];
+                if (cookiePermissionAcceptButton) {
+                    cookiePermissionAcceptButton.addEventListener('click', function () {
+                        googleTagManager();
+                    });
+                }
+                let cookieConsentSaveButton = document.getElementsByClassName('cookie-consent--save-button')[0];
+                if (cookieConsentSaveButton) {
+                    cookieConsentSaveButton.addEventListener('click', function () {
+                        let isGoogleTagManagerEnabled = $.getCookiePreference('nlxGoogleTagManager');
+
+                        if (isGoogleTagManagerEnabled) {
+                            googleTagManager();
+                        }
+                    });
+                }
             });
         </script>
     {/if}
