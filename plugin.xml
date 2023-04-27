@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">Google Tag Manager</label>
     <label lang="en">Google Tag Manager</label>
-    <version>5.1.4</version>
+    <version>5.2.0</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -97,5 +97,9 @@
     <changelog version="5.1.4">
         <changes lang="de">Beachte mehrere Akzeptier-Möglichkeiten im Cookie Consent um den Google Tag Manager nachzuladen</changes>
         <changes lang="en">Observe several acceptance buttons in Cookie Consent to load the Google Tag Manager</changes>
+    </changelog>
+    <changelog version="5.2.0">
+        <changes lang="de">Optout für Google Tag Manager hinzugefügt</changes>
+        <changes lang="en">Added opt out for google tag manager</changes>
     </changelog>
 </plugin>

@@ -9,6 +9,7 @@
             'resetDocumentLocation': true,
             'googleTagManagerOptoutLinkSelector': '*[data-gtm-optout="true"]',
             'googleAnalyticsOptoutLinkSelector': '*[data-ga-optout="true"]',
+            'googleTagManagerCookieName': window.nlxGoogleTagManagerCookieName,
             'disableGoogleTagManager': `ga-disable-` + window.nlxGoogleTagManagerTrackingId,
             'disableAnalytics': `ga-disable-` + window.nlxGoogleAnalyticsMeasurementId,
             'disableAnalytics4': `ga-disable-` + window.nlxGoogleAnalytics4MeasurementId,
@@ -192,8 +193,14 @@
         },
 
         googleTagManagerOptout: function () {
+            let me = this;
+            let cookieConsentPlugin = $('*[data-cookie-consent-manager="true"]').data('plugin_swCookieConsentManager');
+            let cookie = cookieConsentPlugin.findCookieByName(me.opts.googleTagManagerCookieName);
+            cookieConsentPlugin.toggleCookie(cookie, false);
+            cookieConsentPlugin.buildCookiePreferences();
+
             Cookies.set(this.opts.disableGoogleTagManager, true, { expires: new Date(3000, 1, 1) });
-            alert(window.nlxGTMSnippets.googleAnalyticsOptoutSuccess);
+            alert(window.nlxGTMSnippets.googleTagManagerOptoutSuccess);
         },
 
         googleAnalyticsOptout: function () {

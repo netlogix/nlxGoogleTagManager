@@ -8,8 +8,10 @@
         window.nlxGoogleTagManagerTrackingId = '{$nlxGoogleTagManagerTrackingId}';
         window.nlxGoogleAnalyticsMeasurementId = '{$nlxGoogleAnalyticsMeasurementId}';
         window.nlxGoogleAnalytics4MeasurementId = '{$nlxGoogleAnalytics4MeasurementId}';
+        window.nlxGoogleTagManagerCookieName = '{$nlxGoogleTagManagerCookieName}';
         window.nlxGoogleTagManagerAnalyticsCookieName = '{$nlxGoogleTagManagerAnalyticsCookieName}';
         window.nlxGTMSnippets = {
+            'googleTagManagerOptoutSuccess': '{s namespace="frontend/plugins/nlxGoogleTagManager" name="GoogleTagManagerOptoutSuccess"}{/s}',
             'googleAnalyticsOptoutSuccess': '{s namespace="frontend/plugins/nlxGoogleTagManager" name="GoogleAnalyticsOptoutSuccess"}{/s}'
         };
 

@@ -77,6 +77,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
 
@@ -108,6 +109,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
 
@@ -136,6 +138,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
 
@@ -167,6 +170,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
 
