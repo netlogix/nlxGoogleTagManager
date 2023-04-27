@@ -54,6 +54,7 @@ class Frontend implements SubscriberInterface
             'nlxGoogleAnalyticsMeasurementId' => $this->config->getGoogleAnalyticsMeasurementTrackingId(),
             'nlxGoogleAnalytics4MeasurementId' => $this->config->getGoogleAnalytics4MeasurementTrackingId(),
             'nlxGoogleTagManagerRemarketingEnabled' => $this->config->isRemarketingEnabled(),
+            'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME,
         ]);
     }
