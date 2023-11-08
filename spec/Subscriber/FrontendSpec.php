@@ -35,6 +35,9 @@ class FrontendSpec extends ObjectBehavior
         $config->getGoogleAnalytics4MeasurementTrackingId()
             ->willReturn('G-1234');
 
+        $config->isUsercentricsIntegrationEnabled()
+            ->willReturn(false);
+
         $config->isRemarketingEnabled()
             ->willReturn(true);
 
@@ -77,6 +80,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerUsercentricsIntegrationEnabled' => false,
             'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
@@ -109,6 +113,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerUsercentricsIntegrationEnabled' => false,
             'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
@@ -138,6 +143,7 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerUsercentricsIntegrationEnabled' => false,
             'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();
@@ -170,6 +176,34 @@ class FrontendSpec extends ObjectBehavior
             'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
             'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
             'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerUsercentricsIntegrationEnabled' => false,
+            'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
+            'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
+        ])->shouldBeCalled();
+
+        $this->onFrontendPostDispatch($args);
+    }
+
+    public function it_should_set_the_correct_value_for_usercentrics_integration(
+        Config $config,
+        \Enlight_Controller_ActionEventArgs $args,
+        \Enlight_View_Default $view,
+        \Enlight_Controller_Request_Request $request,
+        TrackingConsentServiceInterface $trackingConsentService
+    ): void {
+        $config->useCookieConsentManager()
+            ->willReturn(false);
+
+        $config->isUsercentricsIntegrationEnabled()
+            ->willReturn(true);
+
+        $view->assign([
+            'nlxGoogleTagManagerTrackingActive' => 1,
+            'nlxGoogleTagManagerTrackingId' => 'GTM-123',
+            'nlxGoogleAnalyticsMeasurementId' => 'UA-123345678-1',
+            'nlxGoogleAnalytics4MeasurementId' => 'G-1234',
+            'nlxGoogleTagManagerRemarketingEnabled' => true,
+            'nlxGoogleTagManagerUsercentricsIntegrationEnabled' => true,
             'nlxGoogleTagManagerCookieName' => TrackingConsentServiceInterface::TAG_MANAGER_COOKIE_NAME,
             'nlxGoogleTagManagerAnalyticsCookieName' => TrackingConsentServiceInterface::ANALYTICS_COOKIE_NAME
         ])->shouldBeCalled();

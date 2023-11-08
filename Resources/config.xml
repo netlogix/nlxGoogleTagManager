@@ -38,5 +38,11 @@
             <label lang="en">Is Google Tag Manager required from a technical viewpoint?</label>
             <value>false</value>
         </element>
+        <element type="boolean" scope="shop">
+            <name>nlxGoogleTagManagerUsercentricsIntegrationEnabled</name>
+            <label lang="de">Usercentrics integration aktivieren</label>
+            <label lang="en">Enable usercentrics integration</label>
+            <value>false</value>
+        </element>
     </elements>
 </config>
