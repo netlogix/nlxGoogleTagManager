@@ -33,8 +33,17 @@
         {block name="frontend_index_header_javascript_tracking_gtm"}{/block}
 
         <script>
-            googleTagManager();
+            {if $nlxGoogleTagManagerUsercentricsIntegrationEnabled}
+                window.addEventListener('ucEvent', (event) => {
+                    if (event.detail['Google Tag Manager']) {
+                        googleTagManager();
+                    }
+                });
+            {else}
+                googleTagManager();
+            {/if}
         </script>
+
         <!-- End Google Tag Manager -->
 
         {include file="frontend/nlx_google_tag_manager/tags/remarketing.tpl"}

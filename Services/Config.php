@@ -76,6 +76,11 @@ class Config implements ConfigInterface
         return $this->get('nlxGoogleTagManagerRemarketingEnabled');
     }
 
+    public function isUsercentricsIntegrationEnabled(): bool
+    {
+        return $this->get('nlxGoogleTagManagerUsercentricsIntegrationEnabled');
+    }
+
     /**
      * Checks if the google tag manager is displayed in the shopware consent manager
      */
