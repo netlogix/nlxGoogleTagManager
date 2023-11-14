@@ -7,6 +7,7 @@
             'billingShippingClickSelector': '#register_billing_shippingAddress',
             'googleClickTriggered': false,
             'resetDocumentLocation': true,
+            'userCentricsIntegrationEnabled': window.nlxGoogleTagManagerUsercentricsIntegrationEnabled,
             'googleTagManagerOptoutLinkSelector': '*[data-gtm-optout="true"]',
             'googleAnalyticsOptoutLinkSelector': '*[data-ga-optout="true"]',
             'googleTagManagerCookieName': window.nlxGoogleTagManagerCookieName,
@@ -234,6 +235,10 @@
         },
 
         blockAnalyticsIfNotAllowed: function () {
+            if (this.opts.userCentricsIntegrationEnabled) {
+                return;
+            }
+
             const analyticsAllowed = $.getCookiePreference(window.nlxGoogleTagManagerAnalyticsCookieName);
             this.setAnalyticsOptoutFlag(analyticsAllowed);
         }

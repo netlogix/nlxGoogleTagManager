@@ -5,6 +5,7 @@
 
     <script id="nlx-tag-manager-data">
         window.nlxGoogleTagManagerTrackingActive = {$nlxGoogleTagManagerTrackingActive};
+        window.nlxGoogleTagManagerUsercentricsIntegrationEnabled = {$nlxGoogleTagManagerUsercentricsIntegrationEnabled};
         window.nlxGoogleTagManagerTrackingId = '{$nlxGoogleTagManagerTrackingId}';
         window.nlxGoogleAnalyticsMeasurementId = '{$nlxGoogleAnalyticsMeasurementId}';
         window.nlxGoogleAnalytics4MeasurementId = '{$nlxGoogleAnalytics4MeasurementId}';
